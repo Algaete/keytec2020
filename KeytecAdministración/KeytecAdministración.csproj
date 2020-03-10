@@ -1,0 +1,215 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\AcunlockComb.cs" />
+    <Compile Remove="Models\AlertasAcceso.cs" />
+    <Compile Remove="Models\AsignarHorasExtra.cs" />
+    <Compile Remove="Models\AttParam.cs" />
+    <Compile Remove="Models\AuditoriaCheckinout.cs" />
+    <Compile Remove="Models\Authdevice.cs" />
+    <Compile Remove="Models\AuthLoginAttempts.cs" />
+    <Compile Remove="Models\AuthUsuarios.cs" />
+    <Compile Remove="Models\BakAccesoMarcas.cs" />
+    <Compile Remove="Models\BakColaboradores.cs" />
+    <Compile Remove="Models\Cencos.cs" />
+    <Compile Remove="Models\Checkexact.cs" />
+    <Compile Remove="Models\Checkinout.cs" />
+    <Compile Remove="Models\CodigosPayroll.cs" />
+    <Compile Remove="Models\Contratistas.cs" />
+    <Compile Remove="Models\CoreEstado.cs" />
+    <Compile Remove="Models\CuentaDinamica.cs" />
+    <Compile Remove="Models\CuentaVacaciones.cs" />
+    <Compile Remove="Models\Cuota.cs" />
+    <Compile Remove="Models\Departments.cs" />
+    <Compile Remove="Models\DeptUsedSchs.cs" />
+    <Compile Remove="Models\DesvinculadosMarcaje.cs" />
+    <Compile Remove="Models\ErroresApp.cs" />
+    <Compile Remove="Models\FacClientes.cs" />
+    <Compile Remove="Models\FacDetallePreFactura.cs" />
+    <Compile Remove="Models\FacPagoAnual.cs" />
+    <Compile Remove="Models\FacPreFactura.cs" />
+    <Compile Remove="Models\FacSeguimientoPpu.cs" />
+    <Compile Remove="Models\Fechas.cs" />
+    <Compile Remove="Models\Feriados.cs" />
+    <Compile Remove="Models\Gerencias.cs" />
+    <Compile Remove="Models\Historial.cs" />
+    <Compile Remove="Models\HistorialFaena.cs" />
+    <Compile Remove="Models\HistorialUsuarios.cs" />
+    <Compile Remove="Models\Holidays.cs" />
+    <Compile Remove="Models\HorasExtra.cs" />
+    <Compile Remove="Models\KeyCambioTurno.cs" />
+    <Compile Remove="Models\KeyCargoPerfil.cs" />
+    <Compile Remove="Models\KeyCargos.cs" />
+    <Compile Remove="Models\KeyCargosPerfiles.cs" />
+    <Compile Remove="Models\KeyCentinela.cs" />
+    <Compile Remove="Models\KeyCompras.cs" />
+    <Compile Remove="Models\KeyComprasUsuarios.cs" />
+    <Compile Remove="Models\KeyConciliador.cs" />
+    <Compile Remove="Models\KeyConfiguracion.cs" />
+    <Compile Remove="Models\KeyContratista.cs" />
+    <Compile Remove="Models\KeyCuentaTablet.cs" />
+    <Compile Remove="Models\KeyEmpresaContratista.cs" />
+    <Compile Remove="Models\KeyEmpresas.cs" />
+    <Compile Remove="Models\KeyEmpresasApp.cs" />
+    <Compile Remove="Models\KeyEmpresasSucursales.cs" />
+    <Compile Remove="Models\KeyErrores.cs" />
+    <Compile Remove="Models\KeyestIngreso.cs" />
+    <Compile Remove="Models\KeyEstructura.cs" />
+    <Compile Remove="Models\KeyEvento.cs" />
+    <Compile Remove="Models\KeyEventoSindicato.cs" />
+    <Compile Remove="Models\KeyHistorialVisitas.cs" />
+    <Compile Remove="Models\KeyHorarios.cs" />
+    <Compile Remove="Models\KeyLogMaestro.cs" />
+    <Compile Remove="Models\KeyMachineState.cs" />
+    <Compile Remove="Models\KeyMarcasAcceso.cs" />
+    <Compile Remove="Models\KeyModeloDispositivo.cs" />
+    <Compile Remove="Models\KeyModulos.cs" />
+    <Compile Remove="Models\KeyNotificacion.cs" />
+    <Compile Remove="Models\KeyPaginas.cs" />
+    <Compile Remove="Models\KeyPaises.cs" />
+    <Compile Remove="Models\KeyPaso.cs" />
+    <Compile Remove="Models\KeyPerfiles.cs" />
+    <Compile Remove="Models\KeyPpuDiario.cs" />
+    <Compile Remove="Models\KeyProcesos.cs" />
+    <Compile Remove="Models\KeyRazonsocial.cs" />
+    <Compile Remove="Models\KeyRegion.cs" />
+    <Compile Remove="Models\KeyReglasHorasExtra.cs" />
+    <Compile Remove="Models\KeyReportes.cs" />
+    <Compile Remove="Models\KeySindicato.cs" />
+    <Compile Remove="Models\KeyTarjetas.cs" />
+    <Compile Remove="Models\KeyTemplate.cs" />
+    <Compile Remove="Models\KeyTemplateBack.cs" />
+    <Compile Remove="Models\KeyTemplateBack20191217.cs" />
+    <Compile Remove="Models\KeyTemplateWa00.cs" />
+    <Compile Remove="Models\KeyUserinfo.cs" />
+    <Compile Remove="Models\KeyUserPassbox.cs" />
+    <Compile Remove="Models\KeyUsuarioApi.cs" />
+    <Compile Remove="Models\KeyUsuariosAccesos.cs" />
+    <Compile Remove="Models\KeyUsuariosTablet.cs" />
+    <Compile Remove="Models\KeyVisita.cs" />
+    <Compile Remove="Models\KeyVisitas.cs" />
+    <Compile Remove="Models\KeyZona.cs" />
+    <Compile Remove="Models\KeyZonasDisp.cs" />
+    <Compile Remove="Models\KeyZonasUsuarios.cs" />
+    <Compile Remove="Models\LeaveClass.cs" />
+    <Compile Remove="Models\LeaveClass1.cs" />
+    <Compile Remove="Models\LeaveRegla.cs" />
+    <Compile Remove="Models\Locacion.cs" />
+    <Compile Remove="Models\LunchTipo.cs" />
+    <Compile Remove="Models\MarcasSmartlunch.cs" />
+    <Compile Remove="Models\MarcaTurno.cs" />
+    <Compile Remove="Models\MotivoDesvinculacion.cs" />
+    <Compile Remove="Models\Nacionalidad.cs" />
+    <Compile Remove="Models\NotificacionUsuario.cs" />
+    <Compile Remove="Models\NotificacionUsuarios.cs" />
+    <Compile Remove="Models\OrigenPermiso.cs" />
+    <Compile Remove="Models\PasosFlujoAprobacion.cs" />
+    <Compile Remove="Models\PendienteEliminar.cs" />
+    <Compile Remove="Models\Plantillas.cs" />
+    <Compile Remove="Models\PreEnrolamiento.cs" />
+    <Compile Remove="Models\Puntos.cs" />
+    <Compile Remove="Models\ReglasExcepcion.cs" />
+    <Compile Remove="Models\ReglasLeaveclass.cs" />
+    <Compile Remove="Models\ReglasVacaciones.cs" />
+    <Compile Remove="Models\ReportItem.cs" />
+    <Compile Remove="Models\SchClass.cs" />
+    <Compile Remove="Models\Securitydetails.cs" />
+    <Compile Remove="Models\Sessions.cs" />
+    <Compile Remove="Models\Sindicatos.cs" />
+    <Compile Remove="Models\SindicatosCarga.cs" />
+    <Compile Remove="Models\SystemLog.cs" />
+    <Compile Remove="Models\TablaBorrar.cs" />
+    <Compile Remove="Models\Tbkey.cs" />
+    <Compile Remove="Models\Tbsmsallot.cs" />
+    <Compile Remove="Models\Tbsmsinfo.cs" />
+    <Compile Remove="Models\Template.cs" />
+    <Compile Remove="Models\TemporalUltranav.cs" />
+    <Compile Remove="Models\TemporalUltranavPermisos.cs" />
+    <Compile Remove="Models\TemporalUltranavResultado.cs" />
+    <Compile Remove="Models\TemporalUltranavTotales.cs" />
+    <Compile Remove="Models\Test2.cs" />
+    <Compile Remove="Models\TiempoFuera.cs" />
+    <Compile Remove="Models\TipoCarga.cs" />
+    <Compile Remove="Models\Tmp.cs" />
+    <Compile Remove="Models\TmpKeyDasContratista.cs" />
+    <Compile Remove="Models\TmpUserTempSchBorrar.cs" />
+    <Compile Remove="Models\TransaccionReq.cs" />
+    <Compile Remove="Models\TransaccionRes.cs" />
+    <Compile Remove="Models\TurnoDinamico.cs" />
+    <Compile Remove="Models\TurnosFlexibles.cs" />
+    <Compile Remove="Models\UserAcmachines.cs" />
+    <Compile Remove="Models\UserAcprivilege.cs" />
+    <Compile Remove="Models\Userinfo.cs" />
+    <Compile Remove="Models\UserinfoPunto.cs" />
+    <Compile Remove="Models\UserOfRun.cs" />
+    <Compile Remove="Models\UserSindicato.cs" />
+    <Compile Remove="Models\UserSpeday.cs" />
+    <Compile Remove="Models\UserTempSch.cs" />
+    <Compile Remove="Models\UsuariosCarga.cs" />
+    <Compile Remove="Models\UsuariosHorarios.cs" />
+    <Compile Remove="Models\VCaduca.cs" />
+    <Compile Remove="Models\VCantidadIngresos.cs" />
+    <Compile Remove="Models\VCantidadIngresosPorUsuario.cs" />
+    <Compile Remove="Models\VContratistas.cs" />
+    <Compile Remove="Models\VConTurno.cs" />
+    <Compile Remove="Models\VersionAppMovil.cs" />
+    <Compile Remove="Models\VistaAusentesDiario.cs" />
+    <Compile Remove="Models\VistaAusentesDiarioDesarrollo.cs" />
+    <Compile Remove="Models\VistaCaduca.cs" />
+    <Compile Remove="Models\VistaCantidadIngresos.cs" />
+    <Compile Remove="Models\VistaCantidadIngresosPorUsuario.cs" />
+    <Compile Remove="Models\VistaConTurno.cs" />
+    <Compile Remove="Models\VistaMarcasAsistencia.cs" />
+    <Compile Remove="Models\VistaPresentesDiario.cs" />
+    <Compile Remove="Models\VistaPresentesDiarioDesarrollo.cs" />
+    <Compile Remove="Models\VistaReporte.cs" />
+    <Compile Remove="Models\VistaReporteFer.cs" />
+    <Compile Remove="Models\VistaReporteInverso.cs" />
+    <Compile Remove="Models\VistaReporteInversoPrueba.cs" />
+    <Compile Remove="Models\VistaReporteInversoPrueba2.cs" />
+    <Compile Remove="Models\VistaReporteNocturnoV1.cs" />
+    <Compile Remove="Models\VistaReporteNocturnoV2.cs" />
+    <Compile Remove="Models\VistaReportePrueba.cs" />
+    <Compile Remove="Models\VistaReporteV1.cs" />
+    <Compile Remove="Models\VistaTurnos.cs" />
+    <Compile Remove="Models\VMarcasAsistencia.cs" />
+    <Compile Remove="Models\VMarcasAsistenciaEstado.cs" />
+    <Compile Remove="Models\VReporte.cs" />
+    <Compile Remove="Models\VReporteEstado.cs" />
+    <Compile Remove="Models\VReporteInverso.cs" />
+    <Compile Remove="Models\VReporteInversoEstado.cs" />
+    <Compile Remove="Models\VTotalMaquinas.cs" />
+    <Compile Remove="Models\VTotalZonas.cs" />
+    <Compile Remove="Models\WallAusentismo.cs" />
+    <Compile Remove="Models\WallPausa.cs" />
+    <Compile Remove="Models\WallTemDataUser2.cs" />
+    <Compile Remove="Models\WallTempPlanta2.cs" />
+    <Compile Remove="Models\WaTempPhwebestorg.cs" />
+    <Compile Remove="Models\WaTempPhwebplanta.cs" />
+    <Compile Remove="Models\ZonasPuntos.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+
+
+</Project>

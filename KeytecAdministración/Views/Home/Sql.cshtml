@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "MÁQUINAS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model KeytecAdministración.Models.IndexViewModel
+
+    <div style="margin:10px;">
+        <h4>Filtrar</h4>
+
+        @using (Html.BeginForm(null, null, FormMethod.Get))
+        {
+            <label scope="col" for="Instancia">Instancia</label>
+            <input type="text" name="Instancia" id="Instancia" />
+            <input type="submit" value="Filtrar" class="btn btn-success" />
+        }
+    </div>
+<div class="container-fluid">
+    <h1 class="mt-4">Administración máquinas</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Todas las máquinas y sus instancias</li>
+    </ol>
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nombre Máquina</th>
+                    <th>Machine number</th>
+                    <th>SN</th>
+                    <th>Instancia</th>
+                    <th>ID Sucursal</th>
+                    <th>Número Huellas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>id</th>
+                    <th>MachineAlias</th>
+                    <th>Machine number</th>
+                    <th>SN</th>
+                    <th>Instancia</th>
+                    <th>ID Sucursal</th>
+                    <th>Número Huellas</th>
+                    <th>Acciones</th>
+                </tr>
+            </tfoot>
+
+            @foreach (var item in Model.tablaMaquinas)
+            {
+                <tbody>
+                    <tr>
+                        <td scope="col">@item.Id</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.MachineAlias)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.MachineNumber)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.Sn)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.Instancia)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.IdSucursal)</td>
+                        <td scope="col">Huellas</td>
+
+
+
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Action
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+<div class="container-fluid">
+    @{Html.RenderPartial("_paginador", Model);}
+</div>

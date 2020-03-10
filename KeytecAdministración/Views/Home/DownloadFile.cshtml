@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Bitácora";
+}
+
+ <META http-equiv="refresh" content="300" URL="GetRequest.cshtml" />
+
+ <div class="container-fluid">
+     <h1 class="mt-4">ADMS5T</h1>
+     <ol class="breadcrumb mb-4">
+         <li class="breadcrumb-item active">Warnings</li>
+     </ol>
+
+     <div class="card-header"><i class="fas fa-table mr-1"></i>Tabla de logs warning</div>
+     <div class="card-body">
+         @if (Model != null)
+         {
+             <div class="table-responsive">
+                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                     <thead>
+                         <tr>
+                             <th>Tag del log</th>
+                             <th>Fecha : Dia y hora</th>
+                         </tr>
+                     </thead>
+                     <tfoot>
+                         <tr>
+                             <th>Tag del log</th>
+                             <th>Fecha : Dia y hora</th>
+                         </tr>
+                     </tfoot>
+
+                     @foreach (var lista in Model)
+                     {
+                         <tbody>
+                             <tr class="bg-danger">
+                                 <td scope="col" style="color:azure;">@lista.Tags</td>
+                                 <td scope="col" style="color:azure">@lista.Fecha</td>
+                             </tr>
+                         </tbody>
+                     }
+                 </table>
+             </div>
+         }
+         else
+         { <h2>No se registran errores en el día.</h2>}
+
+     </div>
+ </div>

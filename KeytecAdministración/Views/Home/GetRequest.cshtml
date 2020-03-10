@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Conexión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<META http-equiv="refresh" content="300" URL="GetRequest.cshtml" />
+
+
+
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body">Conectados</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">@ViewBag.countConectados</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-danger text-white mb-4">
+                        <div class="card-body">Desconectados</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">@ViewBag.countDesconectados</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container-fluid">
+            <h1 class="mt-4">Estado maquinas ADMS5T</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Últimos GetRequest de las maquinas en los logs</li>
+            </ol>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>SN</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                        </tr>
+                    </tfoot>
+                    @foreach (var lista in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@lista.SN</td>
+                                <td>@lista.Fecha</td>
+
+
+                                @if (lista.Estado == 0)
+                                {
+                                    <td>
+                                        <div class="spinner-border text-danger">
+
+                                        </div>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <div class="spinner-border text-success">
+
+                                        </div>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>

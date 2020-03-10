@@ -1,0 +1,149 @@
+2020-03-10 10:05:57.7701 INFO Logger request funcionando
+2020-03-10 10:06:03.2623 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 10:06:03.6231 INFO Nlog funcionando
+2020-03-10 10:06:04.7465 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:05.1076 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:05.4796 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:05.8429 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:06.2224 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:06.5926 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:06.9558 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:07.3243 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:07.7088 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:08.0727 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 10:06:08.4284 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:28:19.1448 INFO Logger request funcionando
+2020-03-10 16:28:24.8697 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 16:28:50.6546 INFO Logger request funcionando
+2020-03-10 16:28:52.6917 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-10 16:28:56.3054 INFO Logger request funcionando
+2020-03-10 16:28:58.2216 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-10 16:29:00.8408 INFO Nlog funcionando
+2020-03-10 16:29:01.8013 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:02.1671 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:02.4911 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:02.8157 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:03.1456 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:03.4661 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:03.7900 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:04.1161 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:04.4417 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:04.7635 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:05.0903 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:29:48.8495 INFO Logger request funcionando
+2020-03-10 16:29:48.9692 INFO Logger request funcionando
+2020-03-10 16:44:48.6581 INFO Logger request funcionando
+2020-03-10 16:44:52.4198 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 16:48:18.3617 INFO Nlog funcionando
+2020-03-10 16:48:20.1634 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:20.5114 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:20.8567 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:21.2136 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:21.5528 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:21.9196 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:22.2575 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:22.6286 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:22.9890 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:23.3165 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 16:48:23.6363 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:01:54.2079 INFO Logger request funcionando
+2020-03-10 17:01:58.5419 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:16:56.6837 INFO Logger request funcionando
+2020-03-10 17:17:01.7316 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:17:08.7330 INFO Archivo no es el que corresponde
+2020-03-10 17:17:09.4777 INFO Archivo no es el que corresponde
+2020-03-10 17:17:10.2314 INFO Archivo no es el que corresponde
+2020-03-10 17:17:10.9725 INFO Archivo no es el que corresponde
+2020-03-10 17:17:11.6579 INFO Archivo no es el que corresponde
+2020-03-10 17:17:11.9832 INFO Archivo no es el que corresponde
+2020-03-10 17:17:12.3065 INFO Archivo no es el que corresponde
+2020-03-10 17:17:12.6306 INFO Archivo no es el que corresponde
+2020-03-10 17:17:12.9523 INFO Archivo no es el que corresponde
+2020-03-10 17:17:13.2782 INFO Archivo no es el que corresponde
+2020-03-10 17:17:13.5961 INFO Archivo no es el que corresponde
+2020-03-10 17:17:13.9230 INFO Archivo no es el que corresponde
+2020-03-10 17:17:14.2483 INFO Archivo no es el que corresponde
+2020-03-10 17:17:14.5705 INFO Archivo no es el que corresponde
+2020-03-10 17:17:14.8927 INFO Archivo no es el que corresponde
+2020-03-10 17:17:15.2149 INFO Archivo no es el que corresponde
+2020-03-10 17:17:15.5376 INFO Archivo no es el que corresponde
+2020-03-10 17:17:16.1506 INFO Archivo no es el que corresponde
+2020-03-10 17:17:16.9070 INFO Archivo no es el que corresponde
+2020-03-10 17:17:17.6946 INFO Archivo no es el que corresponde
+2020-03-10 17:17:18.4674 INFO Archivo no es el que corresponde
+2020-03-10 17:17:18.9322 INFO Archivo no es el que corresponde
+2020-03-10 17:17:19.2896 INFO Archivo no es el que corresponde
+2020-03-10 17:17:19.6432 INFO Archivo no es el que corresponde
+2020-03-10 17:17:19.9786 INFO Archivo no es el que corresponde
+2020-03-10 17:17:20.3289 INFO Archivo no es el que corresponde
+2020-03-10 17:19:55.5960 INFO Logger request funcionando
+2020-03-10 17:20:00.5159 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:20:47.5649 INFO Logger request funcionando
+2020-03-10 17:20:49.8380 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-10 17:22:59.0600 INFO Logger request funcionando
+2020-03-10 17:24:50.1106 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:25:49.4203 INFO Archivo no es el que corresponde
+2020-03-10 17:25:49.7481 INFO Archivo no es el que corresponde
+2020-03-10 17:25:50.0783 INFO Archivo no es el que corresponde
+2020-03-10 17:25:50.4574 INFO Archivo no es el que corresponde
+2020-03-10 17:25:50.8088 INFO Archivo no es el que corresponde
+2020-03-10 17:25:51.1428 INFO Archivo no es el que corresponde
+2020-03-10 17:25:51.4791 INFO Archivo no es el que corresponde
+2020-03-10 17:25:52.0891 INFO Archivo no es el que corresponde
+2020-03-10 17:25:52.8415 INFO Archivo no es el que corresponde
+2020-03-10 17:25:53.6177 INFO Archivo no es el que corresponde
+2020-03-10 17:25:53.9666 INFO Archivo no es el que corresponde
+2020-03-10 17:25:54.3159 INFO Archivo no es el que corresponde
+2020-03-10 17:25:54.6854 INFO Archivo no es el que corresponde
+2020-03-10 17:25:55.0194 INFO Archivo no es el que corresponde
+2020-03-10 17:25:55.3714 INFO Archivo no es el que corresponde
+2020-03-10 17:25:55.7157 INFO Archivo no es el que corresponde
+2020-03-10 17:25:56.0498 INFO Archivo no es el que corresponde
+2020-03-10 17:25:56.3798 INFO Archivo no es el que corresponde
+2020-03-10 17:25:56.7302 INFO Archivo no es el que corresponde
+2020-03-10 17:25:57.0586 INFO Archivo no es el que corresponde
+2020-03-10 17:25:57.3925 INFO Archivo no es el que corresponde
+2020-03-10 17:25:57.7158 INFO Archivo no es el que corresponde
+2020-03-10 17:25:58.0411 INFO Archivo no es el que corresponde
+2020-03-10 17:25:58.3779 INFO Archivo no es el que corresponde
+2020-03-10 17:25:58.7194 INFO Archivo no es el que corresponde
+2020-03-10 17:25:59.0745 INFO Archivo no es el que corresponde
+2020-03-10 17:25:59.4803 ERROR Conexion fallidaThe underlying connection was closed: An unexpected error occurred on a receive
+2020-03-10 17:28:21.7161 INFO Logger request funcionando
+2020-03-10 17:28:28.5745 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:35:00.7713 INFO Logger request funcionando
+2020-03-10 17:35:04.5882 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:35:40.2318 INFO Logger request funcionando
+2020-03-10 17:35:42.3001 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-10 17:35:48.9236 INFO Logger request funcionando
+2020-03-10 17:35:50.9505 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-10 17:35:57.5702 INFO Nlog funcionando
+2020-03-10 17:35:58.8316 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:35:59.2164 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:35:59.5960 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:35:59.9268 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:00.2726 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:00.5946 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:00.9377 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:01.2636 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:01.6078 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:01.9395 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:36:02.2607 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:11.3443 INFO Logger request funcionando
+2020-03-10 17:40:15.9124 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 17:40:40.6102 INFO Nlog funcionando
+2020-03-10 17:40:42.2119 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:42.6151 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:43.4890 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:44.3587 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:45.2661 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:46.2261 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:46.8481 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:47.2329 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:47.5860 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:47.9638 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:40:48.4064 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-10 17:49:52.2220 INFO Logger request funcionando
+2020-03-10 17:49:55.8030 INFO Entrando a archivo anterior en servidor FTP
+2020-03-10 18:17:24.9235 INFO Logger request funcionando
+2020-03-10 18:17:30.8731 INFO Entrando a archivo anterior en servidor FTP
