@@ -16,9 +16,7 @@ namespace KeytecAdministración.Models
         }
 
        
-        public virtual DbSet<Acholiday> Acholiday { get; set; }
        
-        public virtual DbSet<KeyZonas> KeyZonas { get; set; }
         public virtual DbSet<Machines> Machines { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,56 +30,7 @@ namespace KeytecAdministración.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-
-            modelBuilder.Entity<Acholiday>(entity =>
-            {
-                entity.HasKey(e => e.Primaryid)
-                    .HasName("PK__acholida__77EFAA48FCB6F685");
-
-                entity.ToTable("acholiday");
-
-                entity.Property(e => e.Primaryid).HasColumnName("primaryid");
-
-                entity.Property(e => e.Begindate)
-                    .HasColumnName("begindate")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Enddate)
-                    .HasColumnName("enddate")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Holidayid).HasColumnName("holidayid");
-
-                entity.Property(e => e.Timezone).HasColumnName("timezone");
-            });
-
-            
-
-            modelBuilder.Entity<KeyZonas>(entity =>
-            {
-                entity.HasKey(e => e.ZonId);
-
-                entity.ToTable("KEY_ZONAS");
-
-                entity.Property(e => e.ZonId).HasColumnName("ZON_ID");
-
-                entity.Property(e => e.IdSucursal).HasColumnName("ID_SUCURSAL");
-
-                entity.Property(e => e.Instancia)
-                    .HasColumnName("INSTANCIA")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ZonCantidadRelojes).HasColumnName("ZON_CANTIDAD_RELOJES");
-
-                entity.Property(e => e.ZonNombre)
-                    .HasColumnName("ZON_NOMBRE")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            
+                  
 
             modelBuilder.Entity<Machines>(entity =>
             {

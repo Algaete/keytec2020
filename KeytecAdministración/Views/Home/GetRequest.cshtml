@@ -5,83 +5,106 @@
     ViewData["Title"] = "Conexión";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model KeytecAdministración.Models.IndexViewModel
 <META http-equiv="refresh" content="300" URL="GetRequest.cshtml" />
 
 
 
-        <div class="container-fluid mt-4">
-            <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-success text-white mb-4">
-                        <div class="card-body">Conectados</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">@ViewBag.countConectados</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">Desconectados</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">@ViewBag.countDesconectados</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Conectados</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">@ViewBag.countConectados</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
-
-
-
-        <div class="container-fluid">
-            <h1 class="mt-4">Estado maquinas ADMS5T</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Últimos GetRequest de las maquinas en los logs</li>
-            </ol>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>SN</th>
-                            <th>Fecha</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>SN</th>
-                            <th>Fecha</th>
-                            <th>Estado</th>
-                        </tr>
-                    </tfoot>
-                    @foreach (var lista in Model)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>@lista.SN</td>
-                                <td>@lista.Fecha</td>
-
-
-                                @if (lista.Estado == 0)
-                                {
-                                    <td>
-                                        <div class="spinner-border text-danger">
-
-                                        </div>
-                                    </td>
-                                }
-                                else
-                                {
-                                    <td>
-                                        <div class="spinner-border text-success">
-
-                                        </div>
-                                    </td>
-                                }
-                            </tr>
-                        </tbody>
-                    }
-                </table>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Desconectados</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">@ViewBag.countDesconectados</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div style="margin:10px;">
+    <h4>Filtrar</h4>
+
+    <div class="d-inline">
+        @using (Html.BeginForm(null, null, FormMethod.Get))
+        {
+            <label scope="col" for="filtro">conectados 1/desconectado 0</label>
+            <input type="text" name="filtro" id="filtro" />
+            <input type="submit" value="Filtrar" class="btn btn-success" />
+        }
+    </div>
+    <div class="d-inline">
+        @using (Html.BeginForm(null, null, FormMethod.Get))
+        {
+            <label scope="col" for="filtro">SN</label>
+            <input type="text" name="filtro" id="filtro" />
+            <input type="submit" value="Filtrar" class="btn btn-success" />
+        }
+    </div>
+</div>
+
+    <div class="container-fluid">
+        <h1 class="mt-4">Estado maquinas ADMS5T</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Últimos GetRequest de las maquinas en los logs</li>
+        </ol>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>SN</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                    </tr>
+                </tfoot>
+                @foreach (var lista in Model.Estadosn)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@lista.SN</td>
+                            <td>@lista.Fecha</td>
+
+
+                            @if (lista.Estado == 0)
+                            {
+                                <td>
+                                    <div class="spinner-border text-danger">
+
+                                    </div>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <div class="spinner-border text-success">
+
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="container-fluid">
+        @{Html.RenderPartial("_paginador", Model);}
+    </div>

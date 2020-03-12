@@ -32,112 +32,129 @@ namespace KeytecAdministración.Controllers
         }
         public IActionResult Sql(string Instancia,int pagina=1)
         {
-            Func<Machines, bool> predicado = x => String.IsNullOrEmpty(Instancia) || Instancia.Equals(x.Instancia);
+            Func<TablaMaquinas, bool> predicado = x => String.IsNullOrEmpty(Instancia) || Instancia.Equals(x.Instancia);
 
-            var cantidadRegistrosPorPagina = 20;
-            var maquinas = productionContext.Machines.Where(predicado).OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
-            
-            
+            var cantidadRegistrosPorPagina = 30;
+            //var maquinas = productionContext.Machines.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
+            var maquinas = productionContext.Machines.Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).ToList();
+
+            var transacciones = transaccionesContext.Transacciones.Where(x => x.TraEstado > -1 && x.TraEstado < 2).ToList();
             var totalDeRegistros = productionContext.Machines.Count();
 
 
-            //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(productionContext.Machines.Select(x=>x.Sn).ToString())).ToList();
+            //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
             var estadoDisp = transaccionesContext.EstadoDispositivos.ToList();
-            var transacciones = transaccionesContext.Transacciones.Where(x=>x.TraEstado > -1 && x.TraEstado < 2).ToList();
-            
 
-            List<TablaMaquinas> tablaFinal = new List<TablaMaquinas>();
-
-            for (int i=0; i < maquinas.Count(); i++)
+            List<TablaMaquinas> tablamaquina = new List<TablaMaquinas>();
+            foreach (var i in maquinas)
             {
-                for(int j=0; j< estadoDisp.Count(); j++)
-                {
-                    while (!string.IsNullOrEmpty(maquinas[i].Sn)) 
+                foreach(var j in estadoDisp)
+                {                    
+                    if (i.Sn.Equals(j.EstSn))
                     { 
-                        if (maquinas[i].Sn.Equals(estadoDisp[j].EstSn))
-                        {
-                            List<TablaMaquinas> listaMaquina = new List<TablaMaquinas>();
-                            listaMaquina[i].Id = maquinas[i].Id;
-                            listaMaquina[i].MachineAlias = maquinas[i].MachineAlias;
-                            listaMaquina[i].Sn = maquinas[i].Sn;
-                            listaMaquina[i].Instancia = maquinas[i].Instancia;
-                            listaMaquina[i].IdSucursal = maquinas[i].IdSucursal;
-                            listaMaquina[i].MachineNumber = maquinas[i].MachineNumber;
-                            listaMaquina[i].EstCantHuellas = estadoDisp[j].EstCantHuellas;
-                            listaMaquina[i].EstCantRostros = estadoDisp[j].EstCantRostros;
-                            listaMaquina[i].EstCantUsuarios = estadoDisp[j].EstCantUsuarios;
-                            listaMaquina[i].EstVersionFw = estadoDisp[j].EstVersionFw;
-                            listaMaquina[i].EstUltimoReporte = estadoDisp[j].EstUltimoReporte;
-                            string fecha_hoy = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-                            var minutes = Convert.ToDateTime(fecha_hoy) - (Convert.ToDateTime(estadoDisp[j].EstUltimoReporte));
-                            if (minutes.TotalMinutes > 10)
-                            {
-                                listaMaquina[i].Estado = 1;// desconectado
-                            }
-                            else
-                            {
-                                listaMaquina[i].Estado = 0;// conectado
-                            }
-                            for(int k = 0; k < transacciones.Count(); k++)
-                            {
-                                int countTraPendiente = 0;
-                                int countPerfilPendiente = 0;
-                                int countCarasPendiente = 0;
-                                int countHuellasPendiente = 0;
-                                int countReinicioPendiente = 0;
-                                int countOtrasPendiente = 0;
-                                if (maquinas[i].Sn.Equals(transacciones[k].TraSn))
-                                {
-                                    if (transacciones[k].TraTipo == 2 )
-                                    {
-                                        countReinicioPendiente ++;
-                                    }
-                                    else if(transacciones[k].TraTipo == 6 )
-                                    {
-                                        countPerfilPendiente ++;
-                                    }
-                                    else if(transacciones[k].TraTipo == 7)
-                                    {
-                                        countHuellasPendiente ++;
-                                    }
-                                    else if(transacciones[k].TraTipo == 8 )
-                                    {
-                                        countCarasPendiente ++;
-                                    }
-                                    else if(transacciones[k].TraTipo != 8 && transacciones[k].TraTipo != 7 && transacciones[k].TraTipo != 6 &&
-                                        transacciones[k].TraTipo != 2)
-                                    {
-                                        countOtrasPendiente ++;
-                                    }
-                                    else
-                                    {
-                                        continue;
-                                    }
+                        int countTraPendiente = 0;
+                        int countPerfilPendiente = 0;
+                        int countCarasPendiente = 0;
+                        int countHuellasPendiente = 0;
+                        int countReinicioPendiente = 0;
+                        int countOtrasPendiente = 0;
+                               
 
-                                    countTraPendiente = countHuellasPendiente + countPerfilPendiente + countReinicioPendiente + countCarasPendiente
-                                        + countOtrasPendiente;
-                                }
-                                listaMaquina[i].TraPendiente = countOtrasPendiente;
-                                listaMaquina[i].PerfilPendiente = countPerfilPendiente;
-                                listaMaquina[i].ReinicioPendiente = countReinicioPendiente;
-                                listaMaquina[i].OtrasPendiente = countOtrasPendiente;
-                                listaMaquina[i].CarasPendiente = countCarasPendiente;
-                                tablaFinal.Add(listaMaquina[i]);                               
-                            }
+                        TablaMaquinas tablaFinal = new TablaMaquinas();
+                        tablaFinal.Id = i.Id;
+                        tablaFinal.MachineAlias = i.MachineAlias;
+                        tablaFinal.Sn = i.Sn;
+                        tablaFinal.Instancia = i.Instancia;
+                        tablaFinal.IdSucursal = i.IdSucursal;
+                        tablaFinal.MachineNumber = i.MachineNumber;
+                        tablaFinal.EstCantHuellas = j.EstCantHuellas;
+                        tablaFinal.EstCantRostros = j.EstCantRostros;
+                        tablaFinal.EstCantUsuarios = j.EstCantUsuarios;
+                        tablaFinal.EstVersionFw = j.EstVersionFw;
+                        tablaFinal.EstUltimoReporte = j.EstUltimoReporte;
+                        string fecha_hoy = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                        var minutes = Convert.ToDateTime(fecha_hoy) - (Convert.ToDateTime(j.EstUltimoReporte));
+                        if (minutes.TotalMinutes > 10)
+                        {
+                            tablaFinal.Estado = 0;// desconectado
+                        }
+                        else
+                        {
+                            tablaFinal.Estado = 1;// conectado
+                        }
+                    
+                        tablaFinal.TraPendiente = countTraPendiente;
+                        tablaFinal.PerfilPendiente = countPerfilPendiente;
+                        tablaFinal.ReinicioPendiente = countReinicioPendiente;
+                        tablaFinal.OtrasPendiente = countOtrasPendiente;
+                        tablaFinal.CarasPendiente = countCarasPendiente;
+                        tablaFinal.HuellasPendiente = countHuellasPendiente;
+                        tablamaquina.Add(tablaFinal);
+                       
+                    }                  
+                }
+            }
+
+            for(int i=0;i<tablamaquina.Count();i++)
+            {
+                foreach (var t in transacciones)
+                {
+                    
+                    int countTraPendiente = 0;
+                    int countPerfilPendiente = 0;
+                    int countCarasPendiente = 0;
+                    int countHuellasPendiente = 0;
+                    int countReinicioPendiente = 0;
+                    int countOtrasPendiente = 0;
+                    if (tablamaquina[i].Sn.Equals(t.TraSn))
+                    {
+                        if (t.TraTipo == 2)
+                        {
+                            countReinicioPendiente++;
+                        }
+                        else if (t.TraTipo == 6)
+                        {
+                            countPerfilPendiente++;
+                        }
+                        else if (t.TraTipo == 7)
+                        {
+                            countHuellasPendiente++;
+                        }
+                        else if (t.TraTipo == 8)
+                        {
+                            countCarasPendiente++;
+                        }
+                        else if (t.TraTipo != 8 && t.TraTipo != 7 && t.TraTipo != 6 &&
+                            t.TraTipo != 2)
+                        {
+                            countOtrasPendiente++;
                         }
                         else
                         {
                             continue;
-                        }                 
+                        }
+
+                        countTraPendiente = countHuellasPendiente + countPerfilPendiente + countReinicioPendiente + countCarasPendiente
+                            + countOtrasPendiente;
+
+                        tablamaquina[i].TraPendiente = countTraPendiente;
+                        tablamaquina[i].PerfilPendiente = countPerfilPendiente;
+                        tablamaquina[i].ReinicioPendiente = countReinicioPendiente;
+                        tablamaquina[i].OtrasPendiente = countOtrasPendiente;
+                        tablamaquina[i].CarasPendiente = countCarasPendiente;
+                        tablamaquina[i].HuellasPendiente = countHuellasPendiente;
+                        
                     }
-                    continue;
-                }continue;
+                }
             }
+
+            var table = tablamaquina.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn))
+                .OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
+
             var modelo = new IndexViewModel();
 
-            //modelo.Machiness = maquinas;
-            //modelo.EstDispositivos = estadoDisp;
-            modelo.tablaMaquinas = tablaFinal;
+            
+            modelo.TableMaquinas = table;
             modelo.PaginaActual = pagina;
             modelo.RegistrosPorPagina = cantidadRegistrosPorPagina;
             modelo.TotalDeRegistros = totalDeRegistros;
@@ -257,8 +274,13 @@ namespace KeytecAdministración.Controllers
         }
 
         //-----------------------------------------------------------------------REQUEST ESTADO----------------------------------------------------
-        public IActionResult GetRequest()
+        public IActionResult GetRequest(string? filtro,string? filtrosn, int pagina = 1)
         {
+            Func<EstadoSN, bool> predicado = x => String.IsNullOrEmpty(filtro) || filtro.Equals(x.SN);
+            Func<EstadoSN, bool> predicado1 = x => String.IsNullOrEmpty(filtrosn) || filtrosn.Equals(x.SN);
+
+            var cantidadRegistrosPorPagina = 20;
+            
             //------------ credenciales e información para conexion archivo FTP--------------------
             logger.Information("Logger request funcionando");
             string FtpServer = "ftp://waws-prod-cq1-011.ftp.azurewebsites.windows.net/site/wwwroot/logs/States/";
@@ -550,7 +572,20 @@ namespace KeytecAdministración.Controllers
                             ViewBag.conectados = snC;
                             ViewBag.desconectados = snD;
 
-                            return View(stateListFinal);
+                            var modelo1 = new IndexViewModel();
+                            var totalDeRegistros = stateListFinal.Count();
+
+                            var table1 = stateListFinal.Where(predicado).Where(predicado1).Where(y => !string.IsNullOrEmpty(y.SN))
+                .OrderBy(x => x.Estado).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
+                            
+                            modelo1.Estadosn = table1;
+                            modelo1.PaginaActual = pagina;
+                            modelo1.RegistrosPorPagina = cantidadRegistrosPorPagina;
+                            modelo1.TotalDeRegistros = totalDeRegistros;
+                            modelo1.ValoresQueryString = new RouteValueDictionary();
+                            modelo1.ValoresQueryString["SN"] = filtro;
+
+                            return View(modelo1);
                         }
                         return View();
                     }

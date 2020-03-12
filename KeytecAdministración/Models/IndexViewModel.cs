@@ -7,8 +7,9 @@ namespace KeytecAdministración.Models
 {
     public class IndexViewModel : BaseModelo
     {
-       // public List<Machines> Machiness { get; set; }
-       // public List<EstadoDispositivos> EstDispositivos { get; set; }
-        public List<TablaMaquinas> tablaMaquinas { get; set; }
+        public List<Machines> Machiness { get; set; }
+        public List<EstadoDispositivos> EstDispositivos { get; set; }
+        public List<TablaMaquinas> TableMaquinas { get; set; }
+        public List<EstadoSN> Estadosn { get; set; }
     }
 }

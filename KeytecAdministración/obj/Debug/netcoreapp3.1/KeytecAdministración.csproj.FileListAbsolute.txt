@@ -442,3 +442,4 @@ C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\staticwebassets\KeytecAdministración.StaticWebAssets.xml
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.dll
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.pdb
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\ReinicioPartialView.cshtml.g.cs

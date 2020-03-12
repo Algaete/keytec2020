@@ -1,0 +1,65 @@
+2020-03-12 00:09:12.2913 INFO Logger request funcionando
+2020-03-12 00:09:21.8933 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 00:09:25.0047 ERROR Conexion fallidaCannot open server 'keycloud-prod' requested by the login. Client with IP address '190.161.92.233' is not allowed to access the server.  To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.
+2020-03-12 00:09:32.3061 INFO Nlog funcionando
+2020-03-12 00:09:34.7626 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:35.9229 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:36.9722 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:38.0333 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:39.0115 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:40.0223 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:41.0277 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:42.0431 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:43.1270 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:44.0987 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:45.0486 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 00:09:51.1355 INFO Logger request funcionando
+2020-03-12 00:09:55.1791 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-12 10:21:17.9191 INFO Logger request funcionando
+2020-03-12 10:21:23.7813 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 10:44:12.1885 INFO Logger request funcionando
+2020-03-12 10:44:15.9619 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 10:44:43.4326 INFO Logger request funcionando
+2020-03-12 10:44:46.3480 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 10:45:34.9768 INFO Logger request funcionando
+2020-03-12 10:45:38.1531 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 10:49:14.3839 INFO Logger request funcionando
+2020-03-12 10:49:18.1368 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 10:52:29.0343 INFO Logger request funcionando
+2020-03-12 10:52:32.8276 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 10:53:59.5911 INFO Logger request funcionando
+2020-03-12 10:54:01.5809 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-12 10:56:34.7334 INFO Logger request funcionando
+2020-03-12 10:56:38.3924 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 11:03:07.6216 INFO Logger request funcionando
+2020-03-12 11:03:13.9086 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 11:05:22.5013 INFO Logger request funcionando
+2020-03-12 11:05:24.6053 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-12 11:05:27.1698 INFO Logger request funcionando
+2020-03-12 11:05:29.0440 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-12 11:06:29.5970 INFO Logger request funcionando
+2020-03-12 11:06:31.9348 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-12 11:08:23.1903 INFO Logger request funcionando
+2020-03-12 11:08:26.9801 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 11:09:22.1575 INFO Logger request funcionando
+2020-03-12 11:09:24.1949 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-12 11:17:16.6852 INFO Nlog funcionando
+2020-03-12 11:17:18.7803 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:19.1748 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:19.5214 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:19.8704 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:20.2296 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:20.5780 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:20.9272 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:21.2701 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:21.6223 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:21.9693 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:22.3203 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-12 11:17:25.2147 INFO Logger request funcionando
+2020-03-12 11:17:28.0144 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 11:41:45.7039 INFO Logger request funcionando
+2020-03-12 11:41:49.5605 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 11:46:56.9281 INFO Logger request funcionando
+2020-03-12 11:46:59.8333 INFO Entrando a archivo anterior en servidor FTP
+2020-03-12 11:56:32.3045 INFO Logger request funcionando
+2020-03-12 11:56:36.0347 INFO Entrando a archivo anterior en servidor FTP
