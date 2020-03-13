@@ -6,17 +6,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model KeytecAdministración.Models.IndexViewModel
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<div style="margin:10px;">
+    <h4>Filtrar</h4>
 
-    <div style="margin:10px;">
-        <h4>Filtrar</h4>
-
-        @using (Html.BeginForm(null, null, FormMethod.Get))
-        {
-            <label scope="col" for="Instancia">Instancia</label>
-            <input type="text" name="Instancia" id="Instancia" />
-            <input type="submit" value="Filtrar" class="btn btn-success" />
-        }
-    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Get))
+    {
+        <label scope="col" for="Instancia">Instancia</label>
+        <input type="text" name="Instancia" id="Instancia" />
+        <input type="submit" value="Filtrar" class="btn btn-success" />
+    }
+</div>
 <div class="container-fluid">
     <h1 class="mt-4">Administración máquinas</h1>
     <ol class="breadcrumb mb-4">
@@ -86,7 +86,7 @@
                         <td scope="col">@Html.DisplayFor(Model => item.EstCantRostros)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.EstVersionFw)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.EstUltimoReporte)</td>
-                        @if (item.Estado == 1)
+                        @if (item.Estado == 0)
                         {
                             <td>
                                 <div class="spinner-border text-danger">
@@ -102,7 +102,7 @@
                                 </div>
                             </td>
                         }
-                        
+
                         <td scope="col">@Html.DisplayFor(Model => item.TraPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.PerfilPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.CarasPendiente)</td>
@@ -115,22 +115,80 @@
                                     Action
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><button type="button" class="btn btn-secondary">Action</button></a>
+                                    <a class="dropdown-item" href="#">
+                                        <button type="button" class="btn btn-primary" id="reinicio" data-toggle="modal" data-id="@item.Sn" data-target="#myModal">
+                                            Reiniciar
+                                        </button>
+                                    </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><button type="button" class="btn btn-success">Action</button></a>
+                                    <a class="dropdown-item" href="#">
+                                        <button  type="button" class="btn btn-danger" id="Eliminar" data-toggle="modal" onclick="llenarSnModal('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
+                                            Eliminar
+                                        </button>
+                                    </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><button type="button" class="btn btn-warning">Action</button></a>
+                                    <a class="dropdown-item" href="#">
+                                        <button type="button" class="btn btn-success" id="descargar" data-toggle="modal" data-id="@item.Sn" data-target="#myModal">
+                                            Descargar
+                                        </button>
+                                    </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><button type="button" class="btn btn-info">Action</button></a>
+                                    <a class="dropdown-item" href="#">
+                                        <button type="button" class="btn btn-warning" id="modificar" data-toggle="modal" data-id="@item.Sn" data-target="#myModal">
+                                            Zona Horaria
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
-            }
-        </table>
+                }
+            </table>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div id="modal-content">
+                            <div class="form-group">
+                                <label>SN Maquina</label>
+                                <input type="text" style="width:350px;" class="form-control" id="sn">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="Submit" class="btn btn-primary">Realizar accion</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
-</div>
-<div class="container-fluid">
-    @{Html.RenderPartial("_paginador", Model);}
-</div>
+    @section scripts{
+       
+        <script src="~/js/site.js"></script>
+        
+       
+    }
+
+
+
+
+    <div class="container-fluid">
+        @{Html.RenderPartial("_paginador", Model);}
+    </div>
+

@@ -72,8 +72,8 @@ namespace KeytecAdministración.Controllers
                         tablaFinal.EstCantUsuarios = j.EstCantUsuarios;
                         tablaFinal.EstVersionFw = j.EstVersionFw;
                         tablaFinal.EstUltimoReporte = j.EstUltimoReporte;
-                        string fecha_hoy = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-                        var minutes = Convert.ToDateTime(fecha_hoy) - (Convert.ToDateTime(j.EstUltimoReporte));
+                        string fecha_hoy = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        var minutes = (Convert.ToDateTime(fecha_hoy)) - (Convert.ToDateTime(j.EstUltimoReporte));
                         if (minutes.TotalMinutes > 10)
                         {
                             tablaFinal.Estado = 0;// desconectado
@@ -95,61 +95,48 @@ namespace KeytecAdministración.Controllers
                 }
             }
 
-            for(int i=0;i<tablamaquina.Count();i++)
+            for (int i = 0; i < tablamaquina.Count(); i++)
             {
+                tablamaquina[i].TraPendiente = 0;//countTraPendiente;
+                tablamaquina[i].PerfilPendiente = 0;//countPerfilPendiente;
+                tablamaquina[i].ReinicioPendiente = 0;//countReinicioPendiente;
+                tablamaquina[i].OtrasPendiente = 0;//countOtrasPendiente;
+                tablamaquina[i].CarasPendiente = 0;//countCarasPendiente;
+                tablamaquina[i].HuellasPendiente = 0;//countHuellasPendiente;
+
                 foreach (var t in transacciones)
                 {
-                    
-                    int countTraPendiente = 0;
-                    int countPerfilPendiente = 0;
-                    int countCarasPendiente = 0;
-                    int countHuellasPendiente = 0;
-                    int countReinicioPendiente = 0;
-                    int countOtrasPendiente = 0;
                     if (tablamaquina[i].Sn.Equals(t.TraSn))
                     {
                         if (t.TraTipo == 2)
                         {
-                            countReinicioPendiente++;
+                            tablamaquina[i].ReinicioPendiente++;
                         }
                         else if (t.TraTipo == 6)
                         {
-                            countPerfilPendiente++;
+                            tablamaquina[i].PerfilPendiente++;
                         }
                         else if (t.TraTipo == 7)
                         {
-                            countHuellasPendiente++;
+                            tablamaquina[i].HuellasPendiente++;
                         }
                         else if (t.TraTipo == 8)
                         {
-                            countCarasPendiente++;
+                            tablamaquina[i].CarasPendiente++;
                         }
-                        else if (t.TraTipo != 8 && t.TraTipo != 7 && t.TraTipo != 6 &&
-                            t.TraTipo != 2)
+                        else if (t.TraTipo != 8 && t.TraTipo != 7 && t.TraTipo != 6 && t.TraTipo != 2)
                         {
-                            countOtrasPendiente++;
-                        }
-                        else
-                        {
-                            continue;
+                            tablamaquina[i].OtrasPendiente++;
                         }
 
-                        countTraPendiente = countHuellasPendiente + countPerfilPendiente + countReinicioPendiente + countCarasPendiente
-                            + countOtrasPendiente;
+                        tablamaquina[i].TraPendiente = tablamaquina[i].ReinicioPendiente + tablamaquina[i].PerfilPendiente + tablamaquina[i].HuellasPendiente + tablamaquina[i].CarasPendiente + tablamaquina[i].OtrasPendiente;
 
-                        tablamaquina[i].TraPendiente = countTraPendiente;
-                        tablamaquina[i].PerfilPendiente = countPerfilPendiente;
-                        tablamaquina[i].ReinicioPendiente = countReinicioPendiente;
-                        tablamaquina[i].OtrasPendiente = countOtrasPendiente;
-                        tablamaquina[i].CarasPendiente = countCarasPendiente;
-                        tablamaquina[i].HuellasPendiente = countHuellasPendiente;
-                        
                     }
                 }
             }
 
             var table = tablamaquina.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn))
-                .OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
+            .OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
 
             var modelo = new IndexViewModel();
 
@@ -597,6 +584,14 @@ namespace KeytecAdministración.Controllers
                 return View(returnValue);
             }
             return View(returnValue);
+        }
+
+
+        [HttpPost]
+        public ActionResult Reinicio(string SerialNumber)
+        {
+            return Redirect("Sql"); 
+
         }
     }
 }
