@@ -16,6 +16,12 @@
         <input type="text" name="Instancia" id="Instancia" />
         <input type="submit" value="Filtrar" class="btn btn-success" />
     }
+    @using (Html.BeginForm(null, null, FormMethod.Get))
+    {
+        <label scope="col" for="SN">SN</label>
+        <input type="text" name="SN" id="SN" />
+        <input type="submit" value="Filtrar" class="btn btn-success" />
+    }
 </div>
 <div class="container-fluid">
     <h1 class="mt-4">Administración máquinas</h1>
@@ -112,7 +118,7 @@
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Action
+                                    Accion
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">
@@ -184,10 +190,6 @@
         
        
     }
-
-
-
-
     <div class="container-fluid">
         @{Html.RenderPartial("_paginador", Model);}
     </div>

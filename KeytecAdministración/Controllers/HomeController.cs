@@ -30,9 +30,10 @@ namespace KeytecAdministración.Controllers
         {
             return View();
         }
-        public IActionResult Sql(string Instancia,int pagina=1)
+        public IActionResult Sql(string Instancia,string SN,int pagina=1)
         {
             Func<TablaMaquinas, bool> predicado = x => String.IsNullOrEmpty(Instancia) || Instancia.Equals(x.Instancia);
+            Func<TablaMaquinas, bool> predicado1 = x => String.IsNullOrEmpty(SN) || SN.Equals(x.Sn);
 
             var cantidadRegistrosPorPagina = 30;
             //var maquinas = productionContext.Machines.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
@@ -135,7 +136,7 @@ namespace KeytecAdministración.Controllers
                 }
             }
 
-            var table = tablamaquina.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn))
+            var table = tablamaquina.Where(predicado).Where(predicado1).Where(y => !string.IsNullOrEmpty(y.Sn))
             .OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
 
             var modelo = new IndexViewModel();
@@ -591,6 +592,24 @@ namespace KeytecAdministración.Controllers
         public ActionResult Reinicio(string SerialNumber)
         {
             return Redirect("Sql"); 
+
+        }
+        [HttpPost]
+        public ActionResult Eliminar(string SerialNumber)
+        {
+            return Redirect("Sql");
+
+        }
+        [HttpPost]
+        public ActionResult Modificar(string SerialNumber)
+        {
+            return Redirect("Sql");
+
+        }
+        [HttpPost]
+        public ActionResult Descargar(string SerialNumber)
+        {
+            return Redirect("Sql");
 
         }
     }
