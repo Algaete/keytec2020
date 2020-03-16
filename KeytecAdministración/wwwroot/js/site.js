@@ -2,18 +2,10 @@
 
 
 
-$(document).ready(function () {
-	$(document).on('click', '#reinicio', function () {
-		var id = $(this).val();
-		var first = $('#sn' + id).text();
-		
 
-		
-		$('#sn').val(first);
-		
-	});
-});
-
-function llenarSnModal(snValue) {
+function llenarSnModalreiniciar(snValue) {
 	document.getElementById("sn").value = snValue;
+}
+function llenarSnModaleliminar(snValue) {
+	document.getElementById("sne").value = snValue;
 }

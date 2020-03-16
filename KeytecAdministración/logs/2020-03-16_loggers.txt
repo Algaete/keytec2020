@@ -64,3 +64,55 @@
 2020-03-16 12:08:43.2366 INFO Entrando a archivo anterior en servidor FTP
 2020-03-16 12:10:49.4747 INFO Logger request funcionando
 2020-03-16 12:10:56.9149 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 12:14:40.7236 INFO Logger request funcionando
+2020-03-16 12:14:47.2433 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 12:18:04.3282 INFO Logger request funcionando
+2020-03-16 12:18:11.2184 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 12:23:43.1415 INFO Logger request funcionando
+2020-03-16 12:23:49.1135 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 13:49:51.1092 INFO Logger request funcionando
+2020-03-16 13:49:58.5804 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 13:53:40.3161 INFO Logger request funcionando
+2020-03-16 13:53:42.4125 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-16 13:53:50.0677 INFO Logger request funcionando
+2020-03-16 13:53:52.2508 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-16 13:53:56.8318 INFO Logger request funcionando
+2020-03-16 13:53:58.5731 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-16 13:54:15.0316 INFO Logger request funcionando
+2020-03-16 14:01:15.6213 INFO Logger request funcionando
+2020-03-16 14:02:13.7236 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:05:38.4215 INFO Logger request funcionando
+2020-03-16 14:05:44.1015 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:08:50.6733 INFO Nlog funcionando
+2020-03-16 14:08:52.1134 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:52.4672 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:52.8084 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:53.1564 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:53.4901 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:53.8403 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:54.1853 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:54.5244 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:54.8673 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:55.2055 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:55.5402 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:55.8846 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-16 14:08:59.2093 INFO Logger request funcionando
+2020-03-16 14:09:02.5204 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:10:14.0862 INFO Logger request funcionando
+2020-03-16 14:10:18.2274 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:17:17.8054 INFO Logger request funcionando
+2020-03-16 14:17:21.9144 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:21:17.8062 INFO Logger request funcionando
+2020-03-16 14:21:23.2306 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:26:34.0906 INFO Logger request funcionando
+2020-03-16 14:26:37.4647 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:31:40.1106 INFO Logger request funcionando
+2020-03-16 14:31:44.1406 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 14:36:46.5730 INFO Logger request funcionando
+2020-03-16 14:36:50.1788 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 15:46:53.0694 INFO Logger request funcionando
+2020-03-16 15:46:53.4220 INFO Logger request funcionando
+2020-03-16 15:46:57.3554 ERROR Conexion fallidaAn exception occurred during a WebClient request.
+2020-03-16 15:47:00.5449 INFO Entrando a archivo anterior en servidor FTP
+2020-03-16 16:49:08.6324 INFO Logger request funcionando
+2020-03-16 16:49:16.4816 INFO Entrando a archivo anterior en servidor FTP

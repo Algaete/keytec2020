@@ -121,26 +121,27 @@
                                     Accion
                                 </button>
                                 <div class="dropdown-menu">
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button type="button" class="btn btn-primary" id="reinicio" data-toggle="modal" data-id="@item.Sn" data-target="#myModal">
-                                            Reiniciar
+                                        <button type="button" class="btn btn-primary" id="reinicio" data-toggle="modal" onclick="llenarSnModalreiniciar('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
+                                            Reinicio
                                         </button>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button  type="button" class="btn btn-danger" id="Eliminar" data-toggle="modal" onclick="llenarSnModal('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
+                                        <button type="button" class="btn btn-danger" id="Eliminar" data-toggle="modal" onclick="llenarSnModaleliminar('@item.Sn')" data-id="@item.Sn" data-target="#eliminarModal">
                                             Eliminar
                                         </button>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button type="button" class="btn btn-success" id="descargar" data-toggle="modal" data-id="@item.Sn" data-target="#myModal">
+                                        <button type="button" class="btn btn-success" id="descargar" data-toggle="modal" onclick="llenarSnModal('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
                                             Descargar
                                         </button>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button type="button" class="btn btn-warning" id="modificar" data-toggle="modal" data-id="@item.Sn" data-target="#myModal">
+                                        <button type="button" class="btn btn-warning" id="modificar" data-toggle="modal" onclick="llenarSnModal('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
                                             Zona Horaria
                                         </button>
                                     </a>
@@ -149,48 +150,122 @@
                         </td>
                     </tr>
                 </tbody>
-                }
-            </table>
-        </div>
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            }
+        </table>
+    </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div id="modal-content">
-                            <div class="form-group">
-                                <label>SN Maquina</label>
-                                <input type="text" style="width:350px;" class="form-control" id="sn">
-                            </div>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <div class="form-group">
+                            <label>SN Maquina</label>
+                            <input type="text" style="width:350px;" class="form-control" id="sn">
                         </div>
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        <button type="Submit" class="btn btn-primary">Realizar accion</button>
-                    </div>
-
                 </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="Submit" id="confirmar" class="btn btn-primary">Realizar accion</button>
+                    Respuesta: <span id="spanRespuesta"></span>
+                </div>
+
             </div>
         </div>
+    </div>
+    <div class="modal" id="eliminarModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal eliminar</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <div class="form-group">
+                            <label>SN Maquina</label>
+                            <input type="text" disabled style="width:350px;" class="form-control" id="sne">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="Submit" id="eliminar" class="btn btn-primary">Realizar accion</button>
+                    Respuesta: <span id="spanRespuestae"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
-    </div>
-    @section scripts{
-       
-        <script src="~/js/site.js"></script>
-        
-       
-    }
-    <div class="container-fluid">
-        @{Html.RenderPartial("_paginador", Model);}
-    </div>
+</div>
+@section scripts{
+
+    <script src="~/js/site.js"></script>
+    @*<script>
+        $(function llenarSnModal(snValue) {
+            $("#sn").val() = snValue;
+        });
+    </script>*@
+    <script>
+        $(function () {
+            $("#confirmar").click(function () {
+                var url = "@Url.Action("Reinicio","Home")";
+                var sn = $("#sn").val();
+                var data = { sn: sn };
+
+                $.post(url, data).done(function (data) {
+                    $("#spanRespuesta").html(data);
+                }).fail(manejarErrorAjax).always(function () {
+
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#eliminar").click(function () {
+                var url = "@Url.Action("Eliminar","Home")";
+                var sn = $("#sne").val();
+                var data = { sn: sn };
+
+                $.post(url, data).done(function (data) {
+                    $("#spanRespuestae").html(data);
+                }).fail(manejarErrorAjax).always(function () {
+
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        });
+    </script>
+
+
+
+}
+<div class="container-fluid">
+    @{Html.RenderPartial("_paginador", Model);}
+</div>
 

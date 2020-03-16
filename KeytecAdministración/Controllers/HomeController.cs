@@ -379,8 +379,7 @@ namespace KeytecAdministración.Controllers
 
                             while ((line = sr.ReadLine()) != null)
                             {
-                                EstadoSN estadosn = new Models.EstadoSN();
-                                Console.WriteLine(line);
+                                EstadoSN estadosn = new EstadoSN();
                                 //lineas.Add(line); //agregar  a linea
 
                                 // -------------lógica para sacar datos----------------                    
@@ -503,7 +502,7 @@ namespace KeytecAdministración.Controllers
                                 DateTime fecha = DateTime.Parse(parts[0]);
                                 estadosn.Fecha = fecha;
                                 estadosn.SN = parts[1];
-                                estadosn.Estado = 1;
+                                estadosn.Estado = 1; //estado 1 = conectado
                                 listaEstado.Add(estadosn);
                                 j++;
                             }
@@ -589,27 +588,45 @@ namespace KeytecAdministración.Controllers
 
 
         [HttpPost]
-        public ActionResult Reinicio(string SerialNumber)
+        public JsonResult Reinicio(string sn)
         {
-            return Redirect("Sql"); 
+            try
+            {
+                string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_TRANSACTIONS))
+                {
+                    string query;
+                    connection.Open();
+                    query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}'))", 10, 0, "{}", sn, DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss"));
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+                return Json("Reiniciado equipo con sn: " + sn);
+            } catch (Exception ex) {
+                return Json("Error : " + ex.Message);
+            }
+           
 
         }
         [HttpPost]
-        public ActionResult Eliminar(string SerialNumber)
+        public JsonResult Eliminar(string sn)
         {
-            return Redirect("Sql");
+            return Json("Eliminado modelo con SN: "+ sn);
 
         }
         [HttpPost]
-        public ActionResult Modificar(string SerialNumber)
+        public JsonResult Modificar(string sn)
         {
-            return Redirect("Sql");
+            return Json("Modificado zona horaria equipo con SN: " + sn);
 
         }
         [HttpPost]
-        public ActionResult Descargar(string SerialNumber)
+        public JsonResult Descargar(string sn)
         {
-            return Redirect("Sql");
+            return Json("Descarga equipo con SN: " + sn);
 
         }
     }
