@@ -135,14 +135,20 @@
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button type="button" class="btn btn-success" id="descargar" data-toggle="modal" onclick="llenarSnModal('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
+                                        <button type="button" class="btn btn-success" id="descargar" data-toggle="modal" onclick="llenarSnModaldescargar('@item.Sn')" data-id="@item.Sn" data-target="#descargarModal">
                                             Descargar
                                         </button>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button type="button" class="btn btn-warning" id="modificar" data-toggle="modal" onclick="llenarSnModal('@item.Sn')" data-id="@item.Sn" data-target="#myModal">
+                                        <button type="button" class="btn btn-warning" id="modificar" data-toggle="modal" onclick="llenarSnModalmodificar('@item.Sn')" data-id="@item.Sn" data-target="#modificarModal">
                                             Zona Horaria
+                                        </button>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">
+                                        <button type="button" class="btn btn-warning" id="proxy" data-toggle="modal" onclick="llenarSnModalproxy('@item.Sn')" data-id="@item.Sn" data-target="#proxyModal">
+                                            Añadir a proxy
                                         </button>
                                     </a>
                                 </div>
@@ -169,7 +175,7 @@
                     <div id="modal-content">
                         <div class="form-group">
                             <label>SN Maquina</label>
-                            <input type="text" style="width:350px;" class="form-control" id="sn">
+                            <input type="text" style="width:350px;" disabled class="form-control" id="sn">
                         </div>
                     </div>
                 </div>
@@ -209,6 +215,106 @@
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     <button type="Submit" id="eliminar" class="btn btn-primary">Realizar accion</button>
                     Respuesta: <span id="spanRespuestae"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modificarModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modificar zona horaria</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <div class="form-group">
+                            <label>SN Maquina</label>
+                            <input type="text" disabled style="width:350px;" class="form-control" id="snm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="Submit" id="modificar" class="btn btn-primary">Realizar accion</button>
+                    Respuesta: <span id="spanRespuestam"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="descargarModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modificar zona horaria</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <div class="form-group">
+                            <label>SN Maquina</label>
+                            <input type="text" disabled style="width:350px;" class="form-control" id="snd">
+                            <label>Fecha inicio</label>
+                            <input type="text" style="width:350px;" class="form-control" id="picker">
+                            <label>Fecha Fin</label>
+                            <input type="text" disabled style="width:350px;" class="form-control" id="snd">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="Submit" id="descargar" class="btn btn-primary">Realizar accion</button>
+                    Respuesta: <span id="spanRespuestad"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="proxyModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modificar zona horaria</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <div class="form-group">
+                            <label>SN Maquina</label>
+                            <input type="text" disabled style="width:350px;" class="form-control" id="snp">
+                            <label for="host">Elegir Host:</label>
+                            <select id="hosts" name="host">
+                                <option >ADMS5T</option>
+
+                                <option>ADMS6</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="Submit" id="proxy" class="btn btn-primary">Realizar accion</button>
+                    Respuesta: <span id="spanRespuestap"></span>
                 </div>
 
             </div>
@@ -259,6 +365,72 @@
             function manejarErrorAjax(err) {
                 console.log(err.responseText);
             }
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#modificar").click(function () {
+                var url = "@Url.Action("Modificar","Home")";
+                var sn = $("#snm").val();
+                var data = { sn: sn };
+
+                $.post(url, data).done(function (data) {
+                    $("#spanRespuestam").html(data);
+                }).fail(manejarErrorAjax).always(function () {
+
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#descargar").click(function () {
+                var url = "@Url.Action("Descargar","Home")";
+                var sn = $("#snm").val();
+                var data = { sn: sn };
+
+                $.post(url, data).done(function (data) {
+                    $("#spanRespuestad").html(data);
+                }).fail(manejarErrorAjax).always(function () {
+
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#proxy").click(function () {
+                var url = "@Url.Action("Proxy","Home")";
+                var sn = $("#snp").val();
+                var host = $("#hosts").val();
+                var data = { sn: sn };
+                var v2 = { host: host };
+
+                $.post(url, data, host).done(function (data) {
+                    $("#spanRespuestap").html(data);
+                }).fail(manejarErrorAjax).always(function () {
+
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        });
+    </script>
+    <script>
+        $('#picker').datetimepicker({
+            datetimepicker: true,
+	        format:'y-m-d H:i',
+            hours12: false,
+            step: 15,
+            yearStart: 2015,
+            yearEnd:2020,
         });
     </script>
 

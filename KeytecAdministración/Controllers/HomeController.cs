@@ -8,6 +8,8 @@ using System.Net;
 using System.IO;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Routing;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 
 namespace KeytecAdministración.Controllers
 {
@@ -163,7 +165,7 @@ namespace KeytecAdministración.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult DownloadFile()
+        public IActionResult Warnings()
         {
             //----------credenciales e información para conexion archivo FTP adms5-----------
 
@@ -262,7 +264,7 @@ namespace KeytecAdministración.Controllers
         }
 
         //-----------------------------------------------------------------------REQUEST ESTADO----------------------------------------------------
-        public IActionResult GetRequest(string? filtro,string? filtrosn, int pagina = 1)
+        public IActionResult GetADMS5T(string? filtro,string? filtrosn, int pagina = 1)
         {
             Func<EstadoSN, bool> predicado = x => String.IsNullOrEmpty(filtro) || filtro.Equals(x.SN);
             Func<EstadoSN, bool> predicado1 = x => String.IsNullOrEmpty(filtrosn) || filtrosn.Equals(x.SN);
@@ -614,7 +616,46 @@ namespace KeytecAdministración.Controllers
         [HttpPost]
         public JsonResult Eliminar(string sn)
         {
-            return Json("Eliminado modelo con SN: "+ sn);
+            try
+            {
+                string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
+                {
+                    string query;
+                    string id = "";
+                    connection.Open();
+                    query = string.Format("SELECT id FROM machines WHERE SN='{0}'", sn);
+                    
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader response;
+                        response = command.ExecuteReader();
+                        if (response.HasRows)
+                        {                           
+                            if (response.Read())
+                                id = response[0].ToString();
+                        }
+                        response.Close();
+                    }
+                    query = string.Format("DELETE KEY_MODELO_DISPOSITIVO WHERE MOD_DISPOSITIVO={0}", id);
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    query = string.Format("DELETE Machines WHERE ID={0}", id);
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+
+                }
+                    return Json("Eliminado modelo con SN: " + sn); 
+            } 
+            catch(Exception ex) {
+                return Json("Error :" + ex.Message);
+            }
+            
 
         }
         [HttpPost]
@@ -626,8 +667,368 @@ namespace KeytecAdministración.Controllers
         [HttpPost]
         public JsonResult Descargar(string sn)
         {
-            return Json("Descarga equipo con SN: " + sn);
+            try {
+
+                JObject dateJSON = new JObject(new JProperty("Fec_inicio", "TUFECHAINICIAL"), new JProperty("Fec_fin", "TUFECHAFINAL"));
+                string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}')", 17, 0, dateJSON.ToString(), "SN", DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss"));
+                return Json("Descarga equipo con SN: " + sn);
+
+            }
+            catch(Exception ex) {
+                return Json("Error al descargar equipo con SN: " + sn + ex.Message);
+            }
+            
 
         }
+        [HttpPost]
+        public JsonResult Proxy(string sn, string host, int n=1)
+        {
+            try {
+                JObject proxyJSON = new JObject(new JProperty("id", sn), new JProperty("host", host), new JProperty("business_id", n));
+                string ruta = "";
+                RestClient restClient;
+                restClient = new RestClient( ruta);
+                var restRequest = new RestRequest(Method.POST);
+                restRequest.AddHeader("Authorization", "1234");
+                restRequest.AddParameter("application/json", proxyJSON, ParameterType.RequestBody);
+                var response = restClient.Execute(restRequest);
+
+                return Json("Equipo con  SN: " + sn + "añadido a nemo proxy");
+
+            }
+            catch (Exception ex) {
+                return Json("Error al agregar a Nemo: "+ ex.Message);
+            }
+            
+        }
+
+
+
+        public IActionResult GetADMS6(string? filtro, string? filtrosn, int pagina = 1)
+        {
+            Func<EstadoSN, bool> predicado = x => String.IsNullOrEmpty(filtro) || filtro.Equals(x.SN);
+            Func<EstadoSN, bool> predicado1 = x => String.IsNullOrEmpty(filtrosn) || filtrosn.Equals(x.SN);
+
+            var cantidadRegistrosPorPagina = 20;
+
+            //------------ credenciales e información para conexion archivo FTP--------------------
+            logger.Information("Logger request funcionando");
+            string FtpServer = "ftp://waws-prod-cq1-017.ftp.azurewebsites.windows.net/site/wwwroot/logs/States/";
+            string username = @"key-adms6\$key-adms6";
+            string password = "xDjnZsds4yfSzxx96s4uCFokMqpz5TsnFR1iyyxnxuRW7h0LqNa61tNz8zvo";
+            string localpath = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\getrequest.txt";
+            string localpathAnterior = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\requestAnterior.txt";
+            var returnValue = "Archivo ftp getrequest no descargado, falla en conexion servidor \n";
+
+            try
+            {
+
+                // ----------Conexion FTP, método usado(descarga),listar directorio archivos----------
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FtpServer);
+                request.Credentials = new NetworkCredential(username, password);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                StreamReader streamReader = new StreamReader(request.GetResponse().GetResponseStream());
+                string fileName3 = streamReader.ReadLine();
+                string aux = "Archivo_erroneo";
+                List<string> directories = new List<string>();
+
+                string stateFile = "logADMS6_States.txt";
+
+                // ----------------validando nombre de archivo que queremos en el servidor ---------------
+
+
+                FtpWebRequest request1 = (FtpWebRequest)WebRequest.Create(FtpServer);
+                request1.Credentials = new NetworkCredential(username, password);
+                request1.Method = WebRequestMethods.Ftp.ListDirectory;
+                StreamReader streamReader1 = new StreamReader(request1.GetResponse().GetResponseStream());
+                string fileName = streamReader1.ReadLine();
+                string aux1 = "Archivo_erroneo";
+                List<string> directories1 = new List<string>();
+                int contdir = 0;
+
+                string stateFile1 = "";
+                int j = 0;
+                bool existFile1 = false;
+                while (fileName != null && fileName != aux1)
+                {
+                    if (fileName.Contains(".txt"))
+                    {
+                        existFile1 = true;
+                        if (contdir == 1)
+                        {
+                            stateFile1 = fileName;
+                            break;
+                        }
+
+                        contdir++;
+                        fileName = streamReader1.ReadLine();
+
+                    }
+                    else
+                    {
+                        logger.Information("Archivo no es el que corresponde");
+                        fileName = streamReader1.ReadLine();
+                    }
+                }
+                streamReader1.Close();
+                if (existFile1)
+                {
+                    using (WebClient ftpClient = new WebClient())
+                    {
+                        ftpClient.Credentials = new NetworkCredential(username, password);
+                        string path = FtpServer + stateFile1;
+                        string trnsfrpth = localpathAnterior + stateFile1;
+                        ftpClient.DownloadFile(path, trnsfrpth);
+
+                        if (!string.IsNullOrEmpty(trnsfrpth))
+                        {
+                            StreamReader sr = new StreamReader(trnsfrpth);
+                            string line;
+                            logger.Information("Entrando a archivo anterior en servidor FTP");
+                            List<string> lineas = new List<string>();
+                            List<EstadoSN> listaEstado = new List<EstadoSN>();
+                            List<EstadoSN> stateListFinal = new List<EstadoSN>();
+                            List<string> listSN = new List<string>();
+                            //SN EN LA EL Base de datos SQL
+                            string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; " +
+                                "Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; " +
+                                "MultipleActiveResultSets=True;";
+                            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_TRANSACTIONS))
+                            {
+                                connection.Open();
+                                string query = "SELECT EST_SN FROM ESTADO_DISPOSITIVOS WHERE EST_HOST='ADMS6'";
+                                using (SqlCommand command = new SqlCommand(query, connection))
+                                {
+                                    SqlDataReader response = command.ExecuteReader();
+                                    try
+                                    {
+                                        if (response.HasRows)
+                                        {
+                                            while (response.Read())
+                                                listSN.Add(response[0].ToString());//response[0] userinfo de cada uno insertar la transaccion                         
+                                        }
+                                        response.Close();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        logger.Error(ex.Message);
+                                        logger.Error(ex.StackTrace);
+                                        response.Close();
+                                    }
+                                }
+                                connection.Close();
+                            }
+
+                            while ((line = sr.ReadLine()) != null)
+                            {
+                                EstadoSN estadosn = new EstadoSN();
+                                //lineas.Add(line); //agregar  a linea
+
+                                // -------------lógica para sacar datos----------------                    
+                                var sentences = new List<String>();
+                                String[] parts = line.Split(" INFO ");
+                                DateTime fecha = DateTime.Parse(parts[0]);
+                                estadosn.Fecha = fecha;
+                                estadosn.SN = parts[1];
+                                estadosn.Estado = 1;
+                                listaEstado.Add(estadosn);
+                                j++;
+                            }
+                            sr.Close();
+
+                            for (int i = listaEstado.Count - 1; i >= 0; i--)//lista de estado recorrer de atras hacia adelante
+                            {
+                                if (listSN.Count == 0)
+                                    break;
+                                foreach (string sn in listSN)
+                                {
+                                    if (sn == listaEstado[i].SN)
+                                    {
+                                        stateListFinal.Add(listaEstado[i]);
+                                        listSN.Remove(sn);
+                                        break;
+                                    }
+                                }
+                            }
+                            foreach (EstadoSN estado in stateListFinal)
+                            {
+                                var minutes = estado.Fecha.AddHours(-3) - DateTime.Now; //esto solo funciona cuando se corre de forma local
+                                if (minutes.TotalMinutes > 25)
+                                    estado.Estado = 0;
+                            }
+                            foreach (string sn in listSN)
+                            {
+                                EstadoSN estadosn = new EstadoSN();
+                                estadosn.Fecha = new DateTime();
+                                estadosn.SN = sn;
+                                estadosn.Estado = 0;
+                                stateListFinal.Add(estadosn);
+                            }
+                        }
+                    }
+                }
+                //----------------archivo actual en servidor FTP---------------------
+                bool existFile = false;
+                while (fileName3 != null && fileName3 != aux)
+                {
+                    if (fileName3.Contains("logADMS6_States.txt"))
+                    {
+                        existFile = true;
+                        break;
+                    }
+                    else
+                    {
+                        logger.Information("Archivo no es el que corresponde");
+                        fileName3 = streamReader.ReadLine();
+                    }
+                }
+                streamReader.Close();
+
+                //--------------- lectura de archivo línea a línea--------------
+                if (existFile)
+                {
+                    using (WebClient ftpClient = new WebClient())
+                    {
+                        ftpClient.Credentials = new NetworkCredential(username, password);
+                        string path = FtpServer + stateFile;
+                        string trnsfrpth = localpath + stateFile;
+                        ftpClient.DownloadFile(path, trnsfrpth);
+
+                        if (!string.IsNullOrEmpty(trnsfrpth))
+                        {
+                            StreamReader sr = new StreamReader(trnsfrpth);
+                            string line;
+                            List<string> lineas = new List<string>();
+                            List<EstadoSN> listaEstado = new List<EstadoSN>();
+                            List<EstadoSN> stateListFinal = new List<EstadoSN>();
+                            List<string> listSN = new List<string>();
+
+                            //--------------Conexion BD para comparar SN con los que salen en los logs----------------------
+                            string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; " +
+                                "Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; " +
+                                "MultipleActiveResultSets=True;";
+                            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_TRANSACTIONS))
+                            {
+                                connection.Open();
+                                string query = "SELECT EST_SN FROM ESTADO_DISPOSITIVOS WHERE EST_HOST='ADMS6'";
+                                using (SqlCommand command = new SqlCommand(query, connection))
+                                {
+                                    SqlDataReader response = command.ExecuteReader();
+                                    try
+                                    {
+                                        if (response.HasRows)
+                                        {
+                                            while (response.Read())
+                                                listSN.Add(response[0].ToString());//response[0] userinfo de cada uno insertar la transaccion                         
+                                        }
+                                        response.Close();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        logger.Error(ex.Message);
+                                        logger.Error(ex.StackTrace);
+                                        response.Close();
+                                    }
+                                }
+                                connection.Close();
+                            }
+
+                            while ((line = sr.ReadLine()) != null)
+                            {
+                                EstadoSN estadosn = new EstadoSN();
+                                Console.WriteLine(line);
+
+                                // -------------lógica para sacar datos----------------                    
+                                var sentences = new List<String>();
+                                String[] parts = line.Split(" INFO ");
+                                DateTime fecha = DateTime.Parse(parts[0]);
+                                estadosn.Fecha = fecha;
+                                estadosn.SN = parts[1];
+                                estadosn.Estado = 1; //estado 1 = conectado
+                                listaEstado.Add(estadosn);
+                                j++;
+                            }
+                            sr.Close();
+
+                            for (int i = listaEstado.Count - 1; i >= 0; i--)//lista de estado recorrer de atras hacia adelante
+                            {
+                                if (listSN.Count == 0)
+                                    break;
+                                foreach (string sn in listSN)
+                                {
+                                    if (sn == listaEstado[i].SN)
+                                    {
+                                        stateListFinal.Add(listaEstado[i]);
+                                        listSN.Remove(sn);
+                                        break;
+                                    }
+                                }
+                            }
+
+                            foreach (EstadoSN estado in stateListFinal)//
+                            {
+                                var minutes = estado.Fecha.AddHours(-3) - DateTime.Now; //esto solo funciona cuando se corre de forma local
+                                if (minutes.TotalMinutes > 25)
+                                    estado.Estado = 0;
+                            }
+
+                            foreach (string sn in listSN)
+                            {
+                                EstadoSN estadosn = new EstadoSN();
+                                estadosn.Fecha = new DateTime();
+                                estadosn.SN = sn;
+                                estadosn.Estado = 0;
+                                stateListFinal.Add(estadosn);
+                            }
+                            List<string> snC = new List<string>();
+                            List<string> snD = new List<string>();
+                            ViewBag.countConectados = 0;
+                            ViewBag.countDesconectados = 0;
+
+                            foreach (EstadoSN estado in stateListFinal)
+                            {
+                                if (estado.Estado == 1)
+                                {
+                                    ViewBag.countConectados++;
+                                    snC.Add(estado.SN);
+                                }
+                                else
+                                {
+                                    ViewBag.countDesconectados++;
+                                    snD.Add(estado.SN);
+                                }
+                            }
+                            ViewBag.conectados = snC;
+                            ViewBag.desconectados = snD;
+
+                            var modelo1 = new IndexViewModel();
+                            var totalDeRegistros = stateListFinal.Count();
+
+                            var table1 = stateListFinal.Where(predicado).Where(predicado1).Where(y => !string.IsNullOrEmpty(y.SN))
+                .OrderBy(x => x.Estado).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
+
+                            modelo1.Estadosn = table1;
+                            modelo1.PaginaActual = pagina;
+                            modelo1.RegistrosPorPagina = cantidadRegistrosPorPagina;
+                            modelo1.TotalDeRegistros = totalDeRegistros;
+                            modelo1.ValoresQueryString = new RouteValueDictionary();
+                            modelo1.ValoresQueryString["SN"] = filtro;
+
+                            return View(modelo1);
+                        }
+                        return View();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Conexion fallida" + ex.Message);
+                return View(returnValue);
+            }
+            return View(returnValue);
+        }
+
+
+
     }
 }

@@ -415,7 +415,6 @@ C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\bin\Debug\netcoreapp3.
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.csprojAssemblyReference.cache
-C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.RazorAssemblyInfo.cache
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.RazorAssemblyInfo.cs
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.AssemblyInfoInputs.cache
@@ -423,8 +422,6 @@ C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.TagHelpers.input.cache
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.TagHelpers.output.cache
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.RazorCoreGenerate.cache
-C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\DownloadFile.cshtml.g.cs
-C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetRequest.cshtml.g.cs
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sql.cshtml.g.cs
@@ -442,3 +439,8 @@ C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\staticwebassets\KeytecAdministración.StaticWebAssets.xml
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.dll
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.pdb
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetADMS6.cshtml.g.cs
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetADMS5T.cshtml.g.cs
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\Warnings.cshtml.g.cs
