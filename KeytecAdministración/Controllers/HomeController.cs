@@ -245,8 +245,16 @@ namespace KeytecAdministración.Controllers
                                     listaTag.Add(tag);
                                 }
                                 sr.Close();
+                                foreach ( var k in listaTag)
+                                {
+                                    DateTime hoy = DateTime.Today;
+                                    if (!k.Fecha.Day.Equals(hoy.Day))
+                                    {
+                                        listaTag.Remove(k);
+                                    }
+                                }
+                                
                                 listaTag.Reverse();
-                                List<string> listaMail = new List<string>();
 
                                 return View(listaTag);
                             }
