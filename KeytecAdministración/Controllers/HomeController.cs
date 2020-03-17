@@ -15,11 +15,8 @@ namespace KeytecAdministración.Controllers
 {
     public class HomeController : Controller
     {
-      
-
         ProductionsContext productionContext = new ProductionsContext();
         TransaccionesContext transaccionesContext = new TransaccionesContext();
-        
 
         private readonly ILog logger;
 
@@ -27,7 +24,6 @@ namespace KeytecAdministración.Controllers
         {
             this.logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -39,16 +35,17 @@ namespace KeytecAdministración.Controllers
 
             var cantidadRegistrosPorPagina = 30;
             //var maquinas = productionContext.Machines.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
-            var maquinas = productionContext.Machines.Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).ToList();
-
-            var transacciones = transaccionesContext.Transacciones.Where(x => x.TraEstado > -1 && x.TraEstado < 2).ToList();
+            var maquinas = productionContext.Machines.Where(y => !string.IsNullOrEmpty(y.Sn)).Where(x => x.Sn.Contains("CGJ")).OrderBy(x => x.Id).ToList();
+            var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x => x.EstSn.Contains("CGJ")).ToList();
             var totalDeRegistros = productionContext.Machines.Count();
 
+           
+            var transacciones = transaccionesContext.Transacciones.Where(x => x.TraSn.Contains("CGJ")).ToList();
 
-            //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
-            var estadoDisp = transaccionesContext.EstadoDispositivos.ToList();
+           
+                //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
 
-            List<TablaMaquinas> tablamaquina = new List<TablaMaquinas>();
+                List<TablaMaquinas> tablamaquina = new List<TablaMaquinas>();
             foreach (var i in maquinas)
             {
                 foreach(var j in estadoDisp)
@@ -93,7 +90,6 @@ namespace KeytecAdministración.Controllers
                         tablaFinal.CarasPendiente = countCarasPendiente;
                         tablaFinal.HuellasPendiente = countHuellasPendiente;
                         tablamaquina.Add(tablaFinal);
-                       
                     }                  
                 }
             }
@@ -131,7 +127,6 @@ namespace KeytecAdministración.Controllers
                         {
                             tablamaquina[i].OtrasPendiente++;
                         }
-
                         tablamaquina[i].TraPendiente = tablamaquina[i].ReinicioPendiente + tablamaquina[i].PerfilPendiente + tablamaquina[i].HuellasPendiente + tablamaquina[i].CarasPendiente + tablamaquina[i].OtrasPendiente;
 
                     }
@@ -174,7 +169,8 @@ namespace KeytecAdministración.Controllers
             string FtpServer = "ftp://waws-prod-cq1-011.ftp.azurewebsites.windows.net/site/wwwroot/logs/Warnings/";
             string username = @"key-adms5\$key-adms5";
             string password = "TRrpH02xwswp2rN3ZRboovc2B0lzPAn96dHet4M2opQbAYQlnngcjryBCXL7";
-            string localpath = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\descarga.txt";
+            Ini iniFile = new Ini("config.ini");
+            string localpath = iniFile.GetValue("descarga", "path");
             var returnValue = "Archivo ftp descargado pero con falla en lectura \n";
 
             try
@@ -192,13 +188,12 @@ namespace KeytecAdministración.Controllers
                 while (fileName3 != null && fileName3 != aux)
                 {
                     //cambiar a la extension que quieras
-                    if (fileName3.Contains("logADMS5_Warnings"))
+                    if (fileName3.Contains("logADMS5_Warnings") && fileName3!=aux)
                     {
                         if (Path.GetExtension(fileName3) == ".txt")//or .xlsx// .png // .jpg etc.
                         {
                             directories.Add(fileName3);
                         }
-
                         fileName3 = streamReader.ReadLine();
                     }
                     else
@@ -226,7 +221,6 @@ namespace KeytecAdministración.Controllers
                             {
                                 StreamReader sr = new StreamReader(trnsfrpth);
                                 string line;
-
                                 List<string> errores = new List<string>();
                                 List<Tag> listaTag = new List<Tag>();
 
@@ -245,14 +239,6 @@ namespace KeytecAdministración.Controllers
                                     listaTag.Add(tag);
                                 }
                                 sr.Close();
-                                foreach ( var k in listaTag)
-                                {
-                                    DateTime hoy = DateTime.Today;
-                                    if (!k.Fecha.Day.Equals(hoy.Day))
-                                    {
-                                        listaTag.Remove(k);
-                                    }
-                                }
                                 
                                 listaTag.Reverse();
 
@@ -284,8 +270,11 @@ namespace KeytecAdministración.Controllers
             string FtpServer = "ftp://waws-prod-cq1-011.ftp.azurewebsites.windows.net/site/wwwroot/logs/States/";
             string username = @"key-adms5\$key-adms5";
             string password = "TRrpH02xwswp2rN3ZRboovc2B0lzPAn96dHet4M2opQbAYQlnngcjryBCXL7";
-            string localpath = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\getrequest.txt";
-            string localpathAnterior = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\requestAnterior.txt";
+            Ini iniFile = new Ini("config.ini");
+            string localpath = iniFile.GetValue("getrequest", "path");
+            string localpathAnterior = iniFile.GetValue("anterior", "path");
+
+            
             var returnValue = "Archivo ftp getrequest no descargado, falla en conexion servidor \n";
 
             try
@@ -327,10 +316,8 @@ namespace KeytecAdministración.Controllers
                             stateFile1 = fileName;
                             break;
                         }
-
                         contdir++;
                         fileName = streamReader1.ReadLine();
-
                     }
                     else
                     {
@@ -656,31 +643,26 @@ namespace KeytecAdministración.Controllers
                         command.ExecuteNonQuery();
                     }
                     connection.Close();
-
                 }
                     return Json("Eliminado modelo con SN: " + sn); 
             } 
             catch(Exception ex) {
                 return Json("Error :" + ex.Message);
             }
-            
-
         }
+
         [HttpPost]
         public JsonResult Modificar(string sn)
         {
             return Json("Modificado zona horaria equipo con SN: " + sn);
-
         }
         [HttpPost]
         public JsonResult Descargar(string sn)
         {
             try {
-
                 JObject dateJSON = new JObject(new JProperty("Fec_inicio", "TUFECHAINICIAL"), new JProperty("Fec_fin", "TUFECHAFINAL"));
                 string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}')", 17, 0, dateJSON.ToString(), "SN", DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss"));
                 return Json("Descarga equipo con SN: " + sn);
-
             }
             catch(Exception ex) {
                 return Json("Error al descargar equipo con SN: " + sn + ex.Message);
@@ -711,7 +693,6 @@ namespace KeytecAdministración.Controllers
         }
 
 
-
         public IActionResult GetADMS6(string? filtro, string? filtrosn, int pagina = 1)
         {
             Func<EstadoSN, bool> predicado = x => String.IsNullOrEmpty(filtro) || filtro.Equals(x.SN);
@@ -724,8 +705,12 @@ namespace KeytecAdministración.Controllers
             string FtpServer = "ftp://waws-prod-cq1-017.ftp.azurewebsites.windows.net/site/wwwroot/logs/States/";
             string username = @"key-adms6\$key-adms6";
             string password = "xDjnZsds4yfSzxx96s4uCFokMqpz5TsnFR1iyyxnxuRW7h0LqNa61tNz8zvo";
-            string localpath = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\getrequest.txt";
-            string localpathAnterior = @"C:\Users\Alfonso\source\repos\KeytecAdministración\KeytecAdministración\DescargaFTP\requestAnterior.txt";
+            Ini iniFile = new Ini("config.ini");
+            string localpath = iniFile.GetValue("getadms6", "path");
+            
+
+            string localpathAnterior = iniFile.GetValue("getanterior6", "path");
+            
             var returnValue = "Archivo ftp getrequest no descargado, falla en conexion servidor \n";
 
             try
@@ -767,10 +752,8 @@ namespace KeytecAdministración.Controllers
                             stateFile1 = fileName;
                             break;
                         }
-
                         contdir++;
                         fileName = streamReader1.ReadLine();
-
                     }
                     else
                     {
@@ -1035,8 +1018,5 @@ namespace KeytecAdministración.Controllers
             }
             return View(returnValue);
         }
-
-
-
     }
 }

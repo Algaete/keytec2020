@@ -75,6 +75,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[106.10.1, )"
+            },
+            "ini": {
+              "target": "Package",
+              "version": "[1.0.7, )"
             }
           },
           "imports": [
