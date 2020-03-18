@@ -37,15 +37,51 @@ namespace KeytecAdministración.Controllers
             //var maquinas = productionContext.Machines.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
             var maquinas = productionContext.Machines.Where(y => !string.IsNullOrEmpty(y.Sn)).Where(x => x.Sn.Contains("CGJ")).OrderBy(x => x.Id).ToList();
             var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x => x.EstSn.Contains("CGJ")).ToList();
-            var totalDeRegistros = productionContext.Machines.Count();
+            var totalDeRegistros = maquinas.Count();
 
            
-            var transacciones = transaccionesContext.Transacciones.Where(x => x.TraSn.Contains("CGJ")).ToList();
-
            
-                //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
+            List<Tra_aux> listaTransacciones = new List<Tra_aux>();
 
-                List<TablaMaquinas> tablamaquina = new List<TablaMaquinas>();
+
+            string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; " +
+                                "Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; " +
+                                "MultipleActiveResultSets=True;";
+            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_TRANSACTIONS))
+            {
+                string query;
+                connection.Open();
+                query = ("SELECT TRA_SN,TRA_TIPO FROM TRANSACCIONES WHERE TRA_ESTADO >-1 AND TRA_ESTADO <2 AND TRA_SN LIKE 'CGJ%'");
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    int intAux;
+                    SqlDataReader response;
+                    response = command.ExecuteReader();
+                    if (response.HasRows)
+                    {
+                        
+                        while (response.Read()) {
+                            Tra_aux transacciones_aux = new Tra_aux();
+                            transacciones_aux.TRA_SN = response[0].ToString();
+                            string aux = response[1].ToString();
+                            if (!Int32.TryParse(aux, out intAux))
+                                logger.Information("ERROR NOT PARSE.");
+                            else
+                                transacciones_aux.TRA_TIPO = intAux;
+                            transacciones_aux.TRA_TIPO = Int32.Parse(aux);
+                            listaTransacciones.Add(transacciones_aux);
+                        }
+                    }
+                    response.Close();
+                }
+                connection.Close();
+            }
+            //var transacciones = transaccionesContext.Transacciones.Where(x => x.TraSn.Contains("CGJ")).ToList();
+
+            //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
+
+            List<TablaMaquinas> tablamaquina = new List<TablaMaquinas>();
             foreach (var i in maquinas)
             {
                 foreach(var j in estadoDisp)
@@ -103,27 +139,27 @@ namespace KeytecAdministración.Controllers
                 tablamaquina[i].CarasPendiente = 0;//countCarasPendiente;
                 tablamaquina[i].HuellasPendiente = 0;//countHuellasPendiente;
 
-                foreach (var t in transacciones)
+                foreach (var t in listaTransacciones)
                 {
-                    if (tablamaquina[i].Sn.Equals(t.TraSn))
+                    if (tablamaquina[i].Sn.Equals(t.TRA_SN))
                     {
-                        if (t.TraTipo == 2)
+                        if (t.TRA_TIPO == 2)
                         {
                             tablamaquina[i].ReinicioPendiente++;
                         }
-                        else if (t.TraTipo == 6)
+                        else if (t.TRA_TIPO == 6)
                         {
                             tablamaquina[i].PerfilPendiente++;
                         }
-                        else if (t.TraTipo == 7)
+                        else if (t.TRA_TIPO == 7)
                         {
                             tablamaquina[i].HuellasPendiente++;
                         }
-                        else if (t.TraTipo == 8)
+                        else if (t.TRA_TIPO == 8)
                         {
                             tablamaquina[i].CarasPendiente++;
                         }
-                        else if (t.TraTipo != 8 && t.TraTipo != 7 && t.TraTipo != 6 && t.TraTipo != 2)
+                        else if (t.TRA_TIPO != 8 && t.TRA_TIPO != 7 && t.TRA_TIPO != 6 && t.TRA_TIPO != 2)
                         {
                             tablamaquina[i].OtrasPendiente++;
                         }
@@ -228,7 +264,6 @@ namespace KeytecAdministración.Controllers
                                 while ((line = sr.ReadLine()) != null)
                                 {
                                     Tag tag = new Models.Tag();
-                                    Console.WriteLine(line);
                                     errores.Add(line);
                                     string taglog = line.Substring(24);
                                     tag.Tags = taglog;
@@ -491,7 +526,6 @@ namespace KeytecAdministración.Controllers
                             while ((line = sr.ReadLine()) != null)
                             {
                                 EstadoSN estadosn = new EstadoSN();
-                                Console.WriteLine(line);
 
                                 // -------------lógica para sacar datos----------------                    
                                 var sentences = new List<String>();
@@ -927,7 +961,6 @@ namespace KeytecAdministración.Controllers
                             while ((line = sr.ReadLine()) != null)
                             {
                                 EstadoSN estadosn = new EstadoSN();
-                                Console.WriteLine(line);
 
                                 // -------------lógica para sacar datos----------------                    
                                 var sentences = new List<String>();

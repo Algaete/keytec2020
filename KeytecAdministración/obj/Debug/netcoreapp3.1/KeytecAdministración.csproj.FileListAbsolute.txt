@@ -444,3 +444,5 @@ C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\Razor\Views\Home\Warnings.cshtml.g.cs
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\obj\Debug\netcoreapp3.1\KeytecAdministración.csprojAssemblyReference.cache
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\bin\Debug\netcoreapp3.1\Ini.cs
+C:\Users\Alfonso\Desktop\Keytec2020\KeytecAdministración\bin\Debug\netcoreapp3.1\config.ini
