@@ -691,11 +691,11 @@ namespace KeytecAdministración.Controllers
             return Json("Modificado zona horaria equipo con SN: " + sn);
         }
         [HttpPost]
-        public JsonResult Descargar(string sn)
+        public JsonResult Descargar(string sn, string fecha_inicio, string fecha_final)
         {
             try {
-                JObject dateJSON = new JObject(new JProperty("Fec_inicio", "TUFECHAINICIAL"), new JProperty("Fec_fin", "TUFECHAFINAL"));
-                string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}')", 17, 0, dateJSON.ToString(), "SN", DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss"));
+                JObject dateJSON = new JObject(new JProperty("Fec_inicio", fecha_inicio), new JProperty("Fec_fin", fecha_final));
+                string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}')", 17, 0, dateJSON.ToString(), sn, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 return Json("Descarga equipo con SN: " + sn);
             }
             catch(Exception ex) {

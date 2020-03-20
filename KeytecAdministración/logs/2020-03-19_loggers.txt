@@ -1,0 +1,24 @@
+2020-03-19 14:05:31.3064 INFO Logger request funcionando
+2020-03-19 14:05:31.3064 INFO Logger request funcionando
+2020-03-19 14:05:31.3064 INFO Nlog funcionando
+2020-03-19 14:05:37.1036 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:37.4829 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:37.8723 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:38.2311 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:38.5860 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:38.9592 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:39.3277 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:39.5786 INFO Entrando a archivo anterior en servidor FTP
+2020-03-19 14:05:39.7034 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:40.7529 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:41.6719 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:42.5872 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:42.7683 INFO Logger request funcionando
+2020-03-19 14:05:43.4461 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:43.5063 INFO Entrando a archivo anterior en servidor FTP
+2020-03-19 14:05:44.7918 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-19 14:05:48.4680 INFO Entrando a archivo anterior en servidor FTP
+2020-03-19 14:05:49.6337 INFO Logger request funcionando
+2020-03-19 14:05:53.5574 INFO Entrando a archivo anterior en servidor FTP
+2020-03-19 15:09:52.4504 INFO Logger request funcionando
+2020-03-19 15:09:59.6178 INFO Entrando a archivo anterior en servidor FTP

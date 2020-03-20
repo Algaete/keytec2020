@@ -7,6 +7,7 @@
 }
 @model KeytecAdministración.Models.IndexViewModel
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+
 <div style="margin:10px;">
     <h4>Filtrar</h4>
 
@@ -267,9 +268,9 @@
                             <label>SN Maquina</label>
                             <input type="text" disabled style="width:350px;" class="form-control" id="snd">
                             <label>Fecha inicio</label>
-                            <input type="text" style="width:350px;" class="form-control" id="picker">
+                            <input type="datetime-local" style="width:350px;" class="form-control" value="2018-07-22T18-30-60">
                             <label>Fecha Fin</label>
-                            <input type="text"  style="width:350px;" class="form-control" id="picker">
+                            <input type="datetime-local" style="width:350px;" class="form-control" value="2018-07-22T18-30-60">
                         </div>
                     </div>
                 </div>
@@ -300,9 +301,10 @@
                         <div class="form-group">
                             <label>SN Maquina</label>
                             <input type="text" disabled style="width:350px;" class="form-control" id="snp">
+                            <br />
                             <label for="host">Elegir Host:</label>
-                            <select id="hosts" name="host">
-                                <option >ADMS5T</option>
+                            <select id="hosts" class="form-c" name="host">
+                                <option>ADMS5T</option>
 
                                 <option>ADMS6</option>
                             </select>
@@ -326,11 +328,9 @@
 @section scripts{
 
     <script src="~/js/site.js"></script>
-    @*<script>
-        $(function llenarSnModal(snValue) {
-            $("#sn").val() = snValue;
-        });
-    </script>*@
+    <script src="~/js/bootstrap-datetimepicker.js"></script>
+
+    <script src="~/js/bootstrap-datetimepicker.min.js"></script>
     <script>
         $(function () {
             $("#confirmar").click(function () {
@@ -424,13 +424,9 @@
         });
     </script>
     <script>
-        $('#picker').datetimepicker({
-            datetimepicker: true,
-	        format:'y-m-d H:i',
-            hours12: false,
-            step: 15,
-            yearStart: 2015,
-            yearEnd:2020,
+        $("#datepicker").datetimepicker({
+            format: 'yyyy-mm-dd hh:ii',
+            autoclose: true
         });
     </script>
 
