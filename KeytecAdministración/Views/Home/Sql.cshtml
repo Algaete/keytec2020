@@ -50,7 +50,10 @@
                     <th>Caras Pendiente</th>
                     <th>Huellas Pendiente</th>
                     <th>Reinicio Pendiente</th>
+                    <th>Eliminados Pendiente</th>
+                    <th>Descarga Pendiente</th>
                     <th>Otras.Pendiente</th>
+                    <th>IdRegion</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -73,7 +76,10 @@
                     <th>Caras Pendiente</th>
                     <th>Huellas Pendiente</th>
                     <th>Reinicio Pendiente</th>
+                    <th>Eliminados Pendiente</th>
+                    <th>Descarga Pendiente</th>
                     <th>Otras.Pendiente</th>
+                    <th>IdRegion</th>
                     <th>Acciones</th>
                 </tr>
             </tfoot>
@@ -115,7 +121,10 @@
                         <td scope="col">@Html.DisplayFor(Model => item.CarasPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.HuellasPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.ReinicioPendiente)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.EliminadosPendiente)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.DescargaPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.OtrasPendiente)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.IdRegion)</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,7 +145,7 @@
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <button type="button" class="btn btn-success" id="descargar" data-toggle="modal" onclick="llenarSnModaldescargar('@item.Sn')" data-id="@item.Sn" data-target="#descargarModal">
+                                        <button type="button" class="btn btn-success" id="desc" data-toggle="modal" onclick="llenarSn('@item.Sn')" data-id="@item.Sn" data-target="#descargarModal">
                                             Descargar
                                         </button>
                                     </a>
@@ -167,7 +176,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">Reiniciar Maquina</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -184,7 +193,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button type="Submit" id="confirmar" class="btn btn-primary">Realizar accion</button>
+                    <button type="Submit" id="confirmar1" class="btn btn-primary">Realizar accion</button>
                     Respuesta: <span id="spanRespuesta"></span>
                 </div>
 
@@ -197,7 +206,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal eliminar</h4>
+                    <h4 class="modal-title">Eliminar Maquina</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -214,7 +223,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button type="Submit" id="eliminar" class="btn btn-primary">Realizar accion</button>
+                    <button type="Submit" id="eliminar1" class="btn btn-primary">Realizar accion</button>
                     Respuesta: <span id="spanRespuestae"></span>
                 </div>
 
@@ -244,20 +253,21 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button type="Submit" id="modificar" class="btn btn-primary">Realizar accion</button>
+                    <button type="Submit" id="modificar1" class="btn btn-primary">Realizar accion</button>
                     Respuesta: <span id="spanRespuestam"></span>
                 </div>
 
             </div>
         </div>
     </div>
+
     <div class="modal" id="descargarModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modificar zona horaria</h4>
+                    <h4 class="modal-title">Descarga Equipo</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -266,11 +276,12 @@
                     <div id="modal-content">
                         <div class="form-group">
                             <label>SN Maquina</label>
-                            <input type="text" disabled style="width:350px;" class="form-control" id="snd">
+                            <input type="text" disabled style="width:350px;" id="s" class="form-control">
+                            <br />
                             <label>Fecha inicio</label>
-                            <input type="datetime-local" style="width:350px;" class="form-control" value="2018-07-22T18-30-60">
+                            <input type="datetime-local" style="width:350px;" class="form-control" id="fecha_ini">
                             <label>Fecha Fin</label>
-                            <input type="datetime-local" style="width:350px;" class="form-control" value="2018-07-22T18-30-60">
+                            <input type="datetime-local" style="width:350px;" class="form-control" id="fecha_fin">
                         </div>
                     </div>
                 </div>
@@ -278,8 +289,8 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button type="Submit" id="descargar" class="btn btn-primary">Realizar accion</button>
-                    Respuesta: <span id="spanRespuestad"></span>
+                    <button type="Submit" id="descargar1" class="btn btn-primary">Realizar accion</button>
+                    Respuesta: <span id="spanRespuestap"></span>
                 </div>
 
             </div>
@@ -291,7 +302,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modificar zona horaria</h4>
+                    <h4 class="modal-title">Agregar Maquina a Nemo proxy</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -315,7 +326,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button type="Submit" id="proxy" class="btn btn-primary">Realizar accion</button>
+                    <button type="Submit" id="proxy1" class="btn btn-primary">Realizar accion</button>
                     Respuesta: <span id="spanRespuestap"></span>
                 </div>
 
@@ -331,9 +342,31 @@
     <script src="~/js/bootstrap-datetimepicker.js"></script>
 
     <script src="~/js/bootstrap-datetimepicker.min.js"></script>
+    
     <script>
         $(function () {
-            $("#confirmar").click(function () {
+            $("#descargar1").click(function () {
+                var url = "@Url.Action("Descargar","Home")";
+                var sn = $("#s").val();
+                var fecha_inicio = $("#fecha_ini").val();
+                var fecha_final = $("#fecha_fin").val();
+                var data = { sn: sn, fecha_inicio: fecha_inicio , fecha_final: fecha_final };
+
+                $.post(url, data).done(function (data) {
+                    $("#spanRespuestad").html(data);
+                }).fail(manejarErrorAjax).always(function () {
+
+                });
+            });
+            function manejarErrorAjax(err) {
+                console.log(err.responseText);
+            }
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#confirmar1").click(function () {
                 var url = "@Url.Action("Reinicio","Home")";
                 var sn = $("#sn").val();
                 var data = { sn: sn };
@@ -351,7 +384,7 @@
     </script>
     <script>
         $(function () {
-            $("#eliminar").click(function () {
+            $("#Eliminar1").click(function () {
                 var url = "@Url.Action("Eliminar","Home")";
                 var sn = $("#sne").val();
                 var data = { sn: sn };
@@ -367,9 +400,10 @@
             }
         });
     </script>
+
     <script>
         $(function () {
-            $("#modificar").click(function () {
+            $("#modificar1").click(function () {
                 var url = "@Url.Action("Modificar","Home")";
                 var sn = $("#snm").val();
                 var data = { sn: sn };
@@ -385,34 +419,16 @@
             }
         });
     </script>
+
     <script>
         $(function () {
-            $("#descargar").click(function () {
-                var url = "@Url.Action("Descargar","Home")";
-                var sn = $("#snm").val();
-                var data = { sn: sn };
-
-                $.post(url, data).done(function (data) {
-                    $("#spanRespuestad").html(data);
-                }).fail(manejarErrorAjax).always(function () {
-
-                });
-            });
-            function manejarErrorAjax(err) {
-                console.log(err.responseText);
-            }
-        });
-    </script>
-    <script>
-        $(function () {
-            $("#proxy").click(function () {
+            $("#proxy1").click(function () {
                 var url = "@Url.Action("Proxy","Home")";
                 var sn = $("#snp").val();
                 var host = $("#hosts").val();
-                var data = { sn: sn };
-                var v2 = { host: host };
+                var data = { sn: sn,host:host };
 
-                $.post(url, data, host).done(function (data) {
+                $.post(url, data).done(function (data) {
                     $("#spanRespuestap").html(data);
                 }).fail(manejarErrorAjax).always(function () {
 
@@ -423,12 +439,7 @@
             }
         });
     </script>
-    <script>
-        $("#datepicker").datetimepicker({
-            format: 'yyyy-mm-dd hh:ii',
-            autoclose: true
-        });
-    </script>
+
 
 
 

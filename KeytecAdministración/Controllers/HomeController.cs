@@ -94,7 +94,10 @@ namespace KeytecAdministración.Controllers
                         int countHuellasPendiente = 0;
                         int countReinicioPendiente = 0;
                         int countOtrasPendiente = 0;
-                               
+                        int countEliminadosPendiente = 0;
+                        int countDescargaPendientes = 0;
+
+
 
                         TablaMaquinas tablaFinal = new TablaMaquinas();
                         tablaFinal.Id = i.Id;
@@ -125,6 +128,10 @@ namespace KeytecAdministración.Controllers
                         tablaFinal.OtrasPendiente = countOtrasPendiente;
                         tablaFinal.CarasPendiente = countCarasPendiente;
                         tablaFinal.HuellasPendiente = countHuellasPendiente;
+                        tablaFinal.EliminadosPendiente = countEliminadosPendiente;
+                        tablaFinal.DescargaPendiente = countDescargaPendientes;
+                        tablaFinal.IdRegion = i.IdRegion;
+
                         tablamaquina.Add(tablaFinal);
                     }                  
                 }
@@ -138,12 +145,21 @@ namespace KeytecAdministración.Controllers
                 tablamaquina[i].OtrasPendiente = 0;//countOtrasPendiente;
                 tablamaquina[i].CarasPendiente = 0;//countCarasPendiente;
                 tablamaquina[i].HuellasPendiente = 0;//countHuellasPendiente;
+                tablamaquina[i].EliminadosPendiente = 0;//countEliminadoPendiente;
 
                 foreach (var t in listaTransacciones)
                 {
                     if (tablamaquina[i].Sn.Equals(t.TRA_SN))
                     {
                         if (t.TRA_TIPO == 2)
+                        {
+                            tablamaquina[i].EliminadosPendiente++;
+                        }
+                        if (t.TRA_TIPO == 12)
+                        {
+                            tablamaquina[i].DescargaPendiente++;
+                        }
+                        if (t.TRA_TIPO == 10)
                         {
                             tablamaquina[i].ReinicioPendiente++;
                         }
@@ -159,11 +175,13 @@ namespace KeytecAdministración.Controllers
                         {
                             tablamaquina[i].CarasPendiente++;
                         }
-                        else if (t.TRA_TIPO != 8 && t.TRA_TIPO != 7 && t.TRA_TIPO != 6 && t.TRA_TIPO != 2)
+                        else if (t.TRA_TIPO != 8 && t.TRA_TIPO != 7 && t.TRA_TIPO != 6 && t.TRA_TIPO != 2 && t.TRA_TIPO != 12 && t.TRA_TIPO != 10)
                         {
                             tablamaquina[i].OtrasPendiente++;
                         }
-                        tablamaquina[i].TraPendiente = tablamaquina[i].ReinicioPendiente + tablamaquina[i].PerfilPendiente + tablamaquina[i].HuellasPendiente + tablamaquina[i].CarasPendiente + tablamaquina[i].OtrasPendiente;
+                        tablamaquina[i].TraPendiente = tablamaquina[i].ReinicioPendiente + tablamaquina[i].PerfilPendiente +
+                            tablamaquina[i].HuellasPendiente + tablamaquina[i].CarasPendiente + tablamaquina[i].OtrasPendiente + tablamaquina[i].DescargaPendiente + 
+                            tablamaquina[i].EliminadosPendiente;
 
                     }
                 }
@@ -275,6 +293,103 @@ namespace KeytecAdministración.Controllers
                                 }
                                 sr.Close();
                                 
+                                listaTag.Reverse();
+
+                                return View(listaTag);
+                            }
+                            return View();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Error al conectar al servidor FTP " + ex.Message);
+                return View(returnValue);
+            }
+            return View(returnValue);
+        }
+
+
+        public IActionResult WarningsADMS6()
+        {
+            //----------credenciales e información para conexion archivo FTP adms5-----------
+
+            logger.Information("Nlog funcionando");
+            string fecha_hoy = DateTime.Now.ToString(@"yyyy-MM-dd");
+            string FtpServer = "ftp://waws-prod-cq1-017.ftp.azurewebsites.windows.net/site/wwwroot/logs/Warnings/";
+            string username = @"key-adms6\$key-adms6";
+            string password = "xDjnZsds4yfSzxx96s4uCFokMqpz5TsnFR1iyyxnxuRW7h0LqNa61tNz8zvo";
+            Ini iniFile = new Ini("config.ini");
+            string localpath = iniFile.GetValue("descargaadms6", "path");
+            var returnValue = "Archivo ftp descargado pero con falla en lectura \n";
+
+            try
+            {
+                //---------- Conexion FTP, metodo usado(descarga),listar directorio archivos----------
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FtpServer);
+                request.Credentials = new NetworkCredential(username, password);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                StreamReader streamReader = new StreamReader(request.GetResponse().GetResponseStream());
+                string fileName3 = streamReader.ReadLine();
+                string aux = "Archivo_erroneo";
+                List<string> directories = new List<string>();
+
+
+                while (fileName3 != null && fileName3 != aux)
+                {
+                    //cambiar a la extension que quieras
+                    if (fileName3.Contains("logADMS6_Warnings") && fileName3 != aux)
+                    {
+                        if (Path.GetExtension(fileName3) == ".txt")//or .xlsx// .png // .jpg etc.
+                        {
+                            directories.Add(fileName3);
+                        }
+                        fileName3 = streamReader.ReadLine();
+                    }
+                    else
+                    {
+                        logger.Information("No hay directorio loggers del dia de hoy en el servidor o error en lectura ");
+                        fileName3 = streamReader.ReadLine();
+                    }
+                }
+                streamReader.Close();
+
+
+                using (WebClient ftpClient = new WebClient())
+                {
+                    ftpClient.Credentials = new NetworkCredential(username, password);
+
+                    for (int i = 0; i <= directories.Count - 1; i++)
+                    {
+                        if (directories[i].Contains("."))
+                        {
+
+                            string path = FtpServer + directories[i].ToString();
+                            string trnsfrpth = localpath + directories[i].ToString();
+                            ftpClient.DownloadFile(path, trnsfrpth);
+                            if (!string.IsNullOrEmpty(trnsfrpth))
+                            {
+                                StreamReader sr = new StreamReader(trnsfrpth);
+                                string line;
+                                List<string> errores = new List<string>();
+                                List<Tag> listaTag = new List<Tag>();
+
+
+                                while ((line = sr.ReadLine()) != null)
+                                {
+                                    Tag tag = new Models.Tag();
+                                    errores.Add(line);
+                                    string taglog = line.Substring(24);
+                                    tag.Tags = taglog;
+                                    string subFecha = line.Substring(0, 19);
+                                    DateTime fecha = DateTime.Parse(subFecha);
+                                    tag.Fecha = fecha;
+                                    i++;
+                                    listaTag.Add(tag);
+                                }
+                                sr.Close();
+
                                 listaTag.Reverse();
 
                                 return View(listaTag);
@@ -693,22 +808,25 @@ namespace KeytecAdministración.Controllers
         [HttpPost]
         public JsonResult Descargar(string sn, string fecha_inicio, string fecha_final)
         {
+            DateTime fecha_ini = Convert.ToDateTime(fecha_inicio);
+            fecha_ini.ToString("yyyy-MM-dd HH:mm:ss");
+            DateTime fecha_fin = Convert.ToDateTime(fecha_final);
+            fecha_fin.ToString("yyyy-MM-dd HH:mm:ss");
+
             try {
-                JObject dateJSON = new JObject(new JProperty("Fec_inicio", fecha_inicio), new JProperty("Fec_fin", fecha_final));
+                JObject dateJSON = new JObject(new JProperty("Fec_inicio", fecha_ini), new JProperty("Fec_fin", fecha_final));
                 string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}')", 17, 0, dateJSON.ToString(), sn, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 return Json("Descarga equipo con SN: " + sn);
             }
             catch(Exception ex) {
                 return Json("Error al descargar equipo con SN: " + sn + ex.Message);
             }
-            
-
         }
         [HttpPost]
         public JsonResult Proxy(string sn, string host, int n=1)
         {
             try {
-                JObject proxyJSON = new JObject(new JProperty("id", sn), new JProperty("host", host), new JProperty("business_id", n));
+                /*JObject proxyJSON = new JObject(new JProperty("id", sn), new JProperty("host", host), new JProperty("business_id", n));
                 string ruta = "";
                 RestClient restClient;
                 restClient = new RestClient( ruta);
@@ -716,14 +834,14 @@ namespace KeytecAdministración.Controllers
                 restRequest.AddHeader("Authorization", "1234");
                 restRequest.AddParameter("application/json", proxyJSON, ParameterType.RequestBody);
                 var response = restClient.Execute(restRequest);
-
-                return Json("Equipo con  SN: " + sn + "añadido a nemo proxy");
+                */
+                return Json("Equipo con  SN: " + sn + "añadido a nemo proxy" + host);
 
             }
             catch (Exception ex) {
                 return Json("Error al agregar a Nemo: "+ ex.Message);
             }
-            
+
         }
 
 

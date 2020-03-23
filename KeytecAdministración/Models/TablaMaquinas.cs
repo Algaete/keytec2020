@@ -25,6 +25,8 @@ namespace KeytecAdministración.Models
         public int? HuellasPendiente { get; set; }
         public int? ReinicioPendiente { get; set; }
         public int? OtrasPendiente { get; set; }
-
+        public int? EliminadosPendiente { get; set; }
+        public int? DescargaPendiente { get; set; }
+        public int? IdRegion { get; set; }
     }
 }

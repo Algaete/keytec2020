@@ -3,9 +3,10 @@
 *@
 @{
     ViewData["Title"] = "Bitácora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
- <META http-equiv="refresh" content="300" URL="GetRequest.cshtml" />
+ <META http-equiv="refresh" content="300" URL="Warnings.cshtml" />
 
  <div class="container-fluid">
      <h1 class="mt-4">ADMS5T</h1>
@@ -13,7 +14,7 @@
          <li class="breadcrumb-item active">Warnings</li>
      </ol>
 
-     <div class="card-header"><i class="fas fa-table mr-1"></i>Tabla de logs warning</div>
+     <div class="card-header"><i class="fas fa-table mr-1"></i>Logs Warnings adms5t</div>
      <div class="card-body">
          @if (Model != null)
          {
