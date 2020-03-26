@@ -803,12 +803,104 @@ namespace KeytecAdministración.Controllers
         [HttpPost]
         public JsonResult Modificar(string sn,string pais, string zona)
         {
-            string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
-            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
-            {
-                string query;
+            try {
+                string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
+                {
+                    string query;
+                    string pais_cod = "";
+                    connection.Open();
+                    // sacar codigo pais a partir del nombre del pais ingresado
+                    query = string.Format("SELECT codigo_pais FROM KEY_PAISES WHERE nombre = '{0}'", pais);
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader response;
+                        response = command.ExecuteReader();
+                        if (response.HasRows)
+                        {
+                            if (response.Read())
+                            {
+                                pais_cod = response[0].ToString();
+                            }
+                        }
+                        response.Close();
+                    }
+                    string cod_region = "";
+                    // sacar numero regiones del pais en una lista
+                    query = string.Format("SELECT id_region FROM KEY_REGION WHERE codigo_pais='{0}' AND nombre='{1}'", pais_cod, zona);
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader response;
+                        response = command.ExecuteReader();
+                        if (response.HasRows)
+                        {
+                            if (response.Read())
+                            {
+                                //codigo region enviado en el post
+                                cod_region = response[0].ToString();
+                            }
+                        }
+                        response.Close();
+                    }
+                    string maquina_region = "";
+                    // region del sn 
+                    query = string.Format("SELECT id_region FROM Machines WHERE sn='{0}'", sn);
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader response;
+                        response = command.ExecuteReader();
+                        if (response.HasRows)
+                        {
+                            if (response.Read())
+                            {
+                                // codigo region de la maquina
+                                maquina_region = response[0].ToString();
+                            }
+                        }
+                        response.Close();
+                    }
+                    if (cod_region.Equals(maquina_region))
+                    {
+                        return Json("La maquina ya esta en esta zona horaria: " + sn + " " + pais + " " + zona);
+                    }
+                    else
+                    {
+                        // actualizar tabla maquinas con id_region a cambiar
+                        query = string.Format("UPDATE Machines SET id_region = '{0}' WHERE sn='{1}'", cod_region, sn);
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                        // reiniciar equipo para que tome la hora
+                        try
+                        {
+                            string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                            using (SqlConnection connection1 = new SqlConnection(SQL_CONNECTION_TRANSACTIONS))
+                            {
+                                string query1;
+                                connection1.Open();
+                                query1 = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}'))", 10, 0, "{}", sn, DateTime.Now.ToString("yyyy - MM - dd HH: mm:ss"));
+                                using (SqlCommand command = new SqlCommand(query1, connection1))
+                                {
+                                    command.ExecuteNonQuery();
+                                }
+                                connection1.Close();
+                            }
+                            return Json("Modificado zona horaria equipo con SN: " + sn + " " + pais + " " + "ID region: " + cod_region);
+                        }
+                        catch (Exception ex)
+                        {
+                            return Json("Error : " + ex.Message);
+                        }
+                        
+                    }
+                }
             }
-                return Json("Modificado zona horaria equipo con SN: " + sn + pais + zona);
+            catch(Exception ex) {
+                return Json("Error :" + ex.Message);
+            }            
         }
         [HttpPost]
         public JsonResult Descargar(string sn, string fecha_inicio, string fecha_final)
@@ -859,10 +951,7 @@ namespace KeytecAdministración.Controllers
             catch (Exception ex) {
                 return Json("Error al agregar a Nemo: "+ ex.Message);
             }
-
         }
-
-
         public IActionResult GetADMS6(string? filtro, string? filtrosn, int pagina = 1)
         {
             Func<EstadoSN, bool> predicado = x => String.IsNullOrEmpty(filtro) || filtro.Equals(x.SN);
