@@ -801,21 +801,39 @@ namespace KeytecAdministración.Controllers
         }
 
         [HttpPost]
-        public JsonResult Modificar(string sn)
+        public JsonResult Modificar(string sn,string pais, string zona)
         {
-            return Json("Modificado zona horaria equipo con SN: " + sn);
+            string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
+            {
+                string query;
+            }
+                return Json("Modificado zona horaria equipo con SN: " + sn + pais + zona);
         }
         [HttpPost]
         public JsonResult Descargar(string sn, string fecha_inicio, string fecha_final)
         {
             DateTime fecha_ini = Convert.ToDateTime(fecha_inicio);
-            fecha_ini.ToString("yyyy-MM-dd HH:mm:ss");
+            string fecha_i = fecha_ini.ToString("yyyy-MM-dd HH:mm:ss");
             DateTime fecha_fin = Convert.ToDateTime(fecha_final);
-            fecha_fin.ToString("yyyy-MM-dd HH:mm:ss");
+            string fecha_f = fecha_fin.ToString("yyyy-MM-dd HH:mm:ss");
+
 
             try {
-                JObject dateJSON = new JObject(new JProperty("Fec_inicio", fecha_ini), new JProperty("Fec_fin", fecha_final));
-                string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}')", 17, 0, dateJSON.ToString(), sn, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_TRANSACTIONS))
+                {
+                    connection.Open();
+                    JObject dateJSON = new JObject(new JProperty("Fec_inicio", fecha_i), new JProperty("Fec_fin", fecha_f));
+                    string query = string.Format("INSERT INTO TRANSACCIONES (TRA_TIPO,TRA_ESTADO,TRA_DETALLE, TRA_SN, TRA_HORA_INICIO) VALUES({0},{1},'{2}','{3}',CONVERT(datetime, '{4}'))", 17, 0, dateJSON.ToString(), sn, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                    
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                    
+                }
                 return Json("Descarga equipo con SN: " + sn);
             }
             catch(Exception ex) {

@@ -243,9 +243,25 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div id="modal-content">
-                        <div class="form-group">
-                            <label>SN Maquina</label>
-                            <input type="text" disabled style="width:350px;" class="form-control" id="snm">
+                        <div name="f1" class="form-group">
+                            <form name="f1">
+                                <label>SN Maquina</label>
+                                <input type="text" disabled style="width:350px;" class="form-control" id="snm">
+                                <br />
+                                <label for="paises">Elegir país</label>
+                                <select id="paises" class="form-c" name="pais" onchange="cambia_provincia()">
+                                    <option value="0" selected>Seleccione...</option>
+                                    <option value="1">Chile</option>
+                                    <option value="2">Colombia</option>
+                                    <option value="3">México</option>
+                                    <option value="4" >Perú</option>
+                                </select>
+                                <label for="zonas">Elegir zona horaria</label>
+                                <select id="zonas" class="form-c" name="provincia">
+                                    <option value="-">-</option>
+                                </select>
+                                
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -406,7 +422,10 @@
             $("#modificar1").click(function () {
                 var url = "@Url.Action("Modificar","Home")";
                 var sn = $("#snm").val();
-                var data = { sn: sn };
+                var pais = $("#paises").val();
+                var zona = document.f1.zonas[document.f1.zonas.selectedIndex].value
+                
+                var data = { sn: sn, pais: pais, zona: zona };
 
                 $.post(url, data).done(function (data) {
                     $("#spanRespuestam").html(data);
@@ -438,6 +457,53 @@
                 console.log(err.responseText);
             }
         });
+    </script>
+    <script>
+        var provincias_1 = new Array("-", "Punta Arenas", "Metropolitana", "...");
+        var provincias_2 = new Array("-",  "...");
+        var provincias_3 = new Array("-",  "...");
+        var provincias_4 = new Array("-",  "...");
+
+        var todasProvincias = [
+            [],
+            provincias_1,
+            provincias_2,
+            provincias_3,
+            provincias_4,
+        ];
+
+        function cambia_provincia() {
+            //tomo el valor del select del pais elegido
+            var pais
+            pais = document.f1.pais[document.f1.pais.selectedIndex].value
+            //miro a ver si el pais está definid
+            if (pais != 0) {
+                //si estaba definido, entonces coloco las opciones de la provincia correspondiente.
+                //selecciono el array de provincia adecuado
+                mis_provincias = todasProvincias[pais]
+                //calculo el numero de provincias
+                num_provincias = mis_provincias.length
+                //marco el número de provincias en el select
+                document.f1.provincia.length = num_provincias
+                //para cada provincia del array, la introduzco en el select
+                for (i = 0; i < num_provincias; i++) {
+                    document.f1.provincia.options[i].value = mis_provincias[i]
+                    document.f1.provincia.options[i].text = mis_provincias[i]
+                }
+                document.f1.pais[document.f1.pais.selectedIndex].value = document.f1.pais[pais].innerText
+                
+
+            } else {
+                //si no había provincia seleccionada, elimino las provincias del select
+                document.f1.provincia.length = 1
+                //coloco un guión en la única opción que he dejado
+                document.f1.provincia.options[0].value = "-"
+                document.f1.provincia.options[0].text = "-"
+            }
+            //marco como seleccionada la opción primera de provincia
+            document.f1.provincia.options[0].selected = true
+        }
+
     </script>
 
 

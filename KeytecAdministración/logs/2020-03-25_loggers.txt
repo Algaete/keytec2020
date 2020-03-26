@@ -1,0 +1,362 @@
+2020-03-25 12:43:33.7039 INFO Logger request funcionando
+2020-03-25 12:43:33.7039 INFO Nlog funcionando
+2020-03-25 12:43:33.7039 INFO Logger request funcionando
+2020-03-25 12:43:38.2447 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:38.7367 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:39.0930 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:39.4491 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:39.8065 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:40.1834 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:40.5664 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:40.9195 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:41.3033 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:41.6675 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:42.0220 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:42.4063 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:42.7792 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:43:44.0028 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:43:51.3668 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:48:45.2114 INFO Nlog funcionando
+2020-03-25 12:48:46.9922 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:47.3424 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:47.3424 INFO Logger request funcionando
+2020-03-25 12:48:47.6934 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:48.3891 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:48.7477 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:49.0951 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:49.4353 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:49.8094 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:50.1577 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:50.5008 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:50.8493 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:51.2028 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:51.5469 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:48:52.1717 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:48:55.2375 INFO Logger request funcionando
+2020-03-25 12:49:00.2058 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:53:54.2866 INFO Nlog funcionando
+2020-03-25 12:53:56.1780 INFO Logger request funcionando
+2020-03-25 12:53:56.2631 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:56.9072 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:57.2949 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:57.6389 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:57.9975 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:58.3403 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:58.6801 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:59.0355 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:59.3854 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:53:59.7265 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:54:00.0904 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:54:00.4327 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:54:00.5085 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:54:00.7842 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:54:04.2663 INFO Logger request funcionando
+2020-03-25 12:54:10.6951 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:59:03.2511 INFO Nlog funcionando
+2020-03-25 12:59:04.1628 INFO Logger request funcionando
+2020-03-25 12:59:04.9796 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:05.3884 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:05.7305 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:06.0857 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:06.4346 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:06.7878 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:07.1500 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:07.5093 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:07.8612 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:07.9896 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 12:59:08.2254 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:08.9454 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:09.3235 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:09.6780 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 12:59:14.2036 INFO Logger request funcionando
+2020-03-25 12:59:19.1379 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:04:12.2424 INFO Nlog funcionando
+2020-03-25 13:04:12.2424 INFO Logger request funcionando
+2020-03-25 13:04:14.3235 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:14.7194 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:15.0886 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:15.4460 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:15.7962 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:16.1645 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:16.5229 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:16.8716 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:17.2184 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:17.5717 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:17.9206 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:18.2704 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:18.6616 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:04:18.9865 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:04:23.1870 INFO Logger request funcionando
+2020-03-25 13:04:30.8646 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:09:21.2137 INFO Nlog funcionando
+2020-03-25 13:09:22.2131 INFO Logger request funcionando
+2020-03-25 13:09:22.8026 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:23.1433 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:23.5093 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:23.8709 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:24.2153 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:24.5594 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:24.9115 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:25.2546 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:25.6043 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:25.9524 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:26.0619 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:09:26.3023 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:27.0578 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:27.4397 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:09:34.2153 INFO Logger request funcionando
+2020-03-25 13:09:40.3990 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:14:29.2596 INFO Logger request funcionando
+2020-03-25 13:14:30.1683 INFO Nlog funcionando
+2020-03-25 13:14:31.4587 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:31.8777 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:32.2608 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:32.6339 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:32.9829 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:33.3329 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:33.6299 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:14:33.6847 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:34.4202 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:34.7727 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:35.1299 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:35.5137 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:35.9410 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:36.3445 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:14:43.2158 INFO Logger request funcionando
+2020-03-25 13:14:47.8607 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:19:37.2624 INFO Logger request funcionando
+2020-03-25 13:19:39.1864 INFO Nlog funcionando
+2020-03-25 13:19:40.5504 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:40.9288 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:41.2901 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:41.6345 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:41.5976 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:19:41.9769 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:42.6868 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:43.0322 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:43.3858 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:43.7411 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:44.1190 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:44.4748 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:44.8347 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:45.1909 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:19:51.1755 INFO Logger request funcionando
+2020-03-25 13:19:57.5215 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:24:45.1829 INFO Logger request funcionando
+2020-03-25 13:24:47.2556 INFO Nlog funcionando
+2020-03-25 13:24:48.5376 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:48.9307 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:49.3055 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:49.6718 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:50.0384 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:50.1269 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:24:50.4052 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:51.1771 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:51.5453 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:51.9136 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:52.2907 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:52.6512 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:53.0588 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:24:53.4486 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:25:00.2394 INFO Logger request funcionando
+2020-03-25 13:25:04.9330 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:29:54.2260 INFO Logger request funcionando
+2020-03-25 13:29:56.1484 INFO Nlog funcionando
+2020-03-25 13:29:57.3965 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:29:57.7486 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:29:58.0987 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:29:58.3691 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 13:29:58.4448 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:29:59.1653 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:29:59.5302 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:29:59.8819 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:00.2350 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:00.6368 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:00.9847 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:01.3536 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:01.6973 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:02.0499 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 13:30:08.2241 INFO Logger request funcionando
+2020-03-25 13:30:12.9468 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:22:23.2620 INFO Nlog funcionando
+2020-03-25 14:22:23.2620 INFO Logger request funcionando
+2020-03-25 14:22:23.2620 INFO Logger request funcionando
+2020-03-25 14:22:28.4368 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:30.3601 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:31.3713 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:32.4670 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:33.5027 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:33.6289 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:22:34.6821 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:34.9903 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:22:36.7059 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:38.6572 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:39.4859 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:40.3444 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:41.4339 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:42.3293 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:22:43.6040 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:39.2905 INFO Logger request funcionando
+2020-03-25 14:27:41.1944 INFO Logger request funcionando
+2020-03-25 14:27:45.0335 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:27:46.6329 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:27:48.2618 INFO Nlog funcionando
+2020-03-25 14:27:49.9029 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:50.7703 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:51.8923 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:53.0342 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:54.0807 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:55.1505 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:56.2768 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:57.4364 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:58.5995 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:27:59.6793 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:28:00.7342 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:28:02.0573 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:28:03.2703 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:32:49.3309 INFO Logger request funcionando
+2020-03-25 14:32:51.3007 INFO Logger request funcionando
+2020-03-25 14:32:55.4065 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:32:58.0699 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:33:07.3038 INFO Nlog funcionando
+2020-03-25 14:33:09.5215 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:10.9158 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:11.9971 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:13.0578 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:13.9836 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:15.0179 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:16.0531 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:16.9383 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:17.8580 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:18.4519 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:19.7104 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:20.8518 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:33:22.0664 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:37:59.3555 INFO Logger request funcionando
+2020-03-25 14:38:03.5063 INFO Logger request funcionando
+2020-03-25 14:38:04.5103 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:38:08.9143 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:38:26.4111 INFO Nlog funcionando
+2020-03-25 14:38:28.7281 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:29.9692 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:30.9980 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:32.1371 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:33.2599 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:34.3582 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:35.3979 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:36.3343 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:37.3232 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:38.4265 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:39.4938 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:40.5856 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:38:41.5705 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:09.2760 INFO Logger request funcionando
+2020-03-25 14:43:13.2217 INFO Logger request funcionando
+2020-03-25 14:43:14.2587 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:43:18.7104 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:43:45.4331 INFO Nlog funcionando
+2020-03-25 14:43:48.0807 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:49.1953 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:50.2282 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:51.3338 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:52.2806 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:53.2506 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:54.2550 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:55.2056 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:56.2287 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:57.1282 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:58.1488 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:43:59.3077 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:44:00.2015 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:48:19.2996 INFO Logger request funcionando
+2020-03-25 14:48:23.4668 INFO Logger request funcionando
+2020-03-25 14:48:24.3134 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:48:28.8432 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:49:04.4220 INFO Nlog funcionando
+2020-03-25 14:49:06.5832 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:07.6420 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:08.6381 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:09.7189 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:10.7562 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:11.8296 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:12.8328 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:13.6672 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:14.5542 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:15.4349 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:16.2662 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:17.1573 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:49:17.9683 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:53:29.3725 INFO Logger request funcionando
+2020-03-25 14:53:33.3831 INFO Logger request funcionando
+2020-03-25 14:53:34.5168 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:53:38.7692 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:54:22.2290 INFO Nlog funcionando
+2020-03-25 14:54:24.3092 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:25.3596 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:26.4192 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:27.3733 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:28.3183 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:29.2681 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:30.1532 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:31.0995 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:32.0084 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:32.9123 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:33.8071 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:34.6671 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:54:35.4930 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:58:38.5161 INFO Logger request funcionando
+2020-03-25 14:58:44.2067 INFO Logger request funcionando
+2020-03-25 14:58:44.3156 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:58:49.6793 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 14:59:39.3537 INFO Nlog funcionando
+2020-03-25 14:59:41.6113 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:42.6018 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:43.7275 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:44.6347 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:45.5328 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:46.5383 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:47.4017 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:48.3948 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:49.2957 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:50.2917 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:51.2140 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:52.2120 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 14:59:53.0283 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:03:49.4861 INFO Logger request funcionando
+2020-03-25 15:03:54.3320 INFO Logger request funcionando
+2020-03-25 15:03:56.8543 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 15:04:00.7394 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 15:04:57.2579 INFO Nlog funcionando
+2020-03-25 15:04:59.3648 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:00.4150 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:01.4861 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:02.2476 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:03.1285 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:04.2167 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:05.2867 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:05.8500 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:06.5745 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:07.3754 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:08.3942 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:09.2214 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:05:10.1179 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:09:01.3849 INFO Logger request funcionando
+2020-03-25 15:09:05.3198 INFO Logger request funcionando
+2020-03-25 15:09:06.5627 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 15:09:11.0434 INFO Entrando a archivo anterior en servidor FTP
+2020-03-25 15:10:14.4108 INFO Nlog funcionando
+2020-03-25 15:10:16.8435 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:17.5987 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:18.2145 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:18.6919 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:19.3600 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:19.9751 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:20.4674 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:21.0652 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:21.8778 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:22.5249 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:23.1704 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:23.8245 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 15:10:24.6936 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-03-25 20:38:01.0948 INFO Logger request funcionando
+2020-03-25 20:38:08.9533 INFO Entrando a archivo anterior en servidor FTP
