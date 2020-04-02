@@ -100,3 +100,9 @@
     <div class="container-fluid">
         @{Html.RenderPartial("_paginador", Model);}
     </div>
+    <div>
+        <p class="text-muted" style="padding-top:30px; padding-left:5px;padding-right:5px;">
+            Muestra el estado de dispositivo (conectado/desconectado) dependiendo de la ultima vez que el dispositivo envío un getrequest al adms, esto se puede ver a traves de métodos logs configurados para ello.
+            Se considera desconectado si es que el dispositivo aparece en la bd y su último GetRequest fue hace menos de 25 minutos.
+        </p>
+    </div>
