@@ -904,6 +904,9 @@ namespace KeytecAdministración.Controllers
         }
         [HttpPost]
         public JsonResult Descargar(string sn, string fecha_inicio, string fecha_final)
+        
+        
+        
         {
             DateTime fecha_ini = Convert.ToDateTime(fecha_inicio);
             string fecha_i = fecha_ini.ToString("yyyy-MM-dd HH:mm:ss");
