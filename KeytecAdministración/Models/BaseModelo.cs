@@ -12,5 +12,6 @@ namespace KeytecAdministración.Models
         public int TotalDeRegistros { get; set; }
         public int RegistrosPorPagina { get; set; }
         public RouteValueDictionary ValoresQueryString { get; set; }
+        public RouteValueDictionary ValoresQueryString2 { get; set; }
     }
 }

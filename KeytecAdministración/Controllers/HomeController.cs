@@ -28,10 +28,11 @@ namespace KeytecAdministración.Controllers
         {
             return View();
         }
-        public IActionResult Sql(string Instancia,string SN,int pagina=1)
+        public IActionResult Sql(string Instancia,string SN,string Empresa,int pagina=1)
         {
             Func<TablaMaquinas, bool> predicado = x => String.IsNullOrEmpty(Instancia) || Instancia.Equals(x.Instancia);
             Func<TablaMaquinas, bool> predicado1 = x => String.IsNullOrEmpty(SN) || SN.Equals(x.Sn);
+            Func<TablaMaquinas, bool> predicado2 = x => String.IsNullOrEmpty(Empresa) || Empresa.Equals(x.Nombre_empresa);
 
             var cantidadRegistrosPorPagina = 30;
             //var maquinas = productionContext.Machines.Where(predicado).Where(y => !string.IsNullOrEmpty(y.Sn)).OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
@@ -42,6 +43,7 @@ namespace KeytecAdministración.Controllers
            
            
             List<Tra_aux> listaTransacciones = new List<Tra_aux>();
+            
 
 
             string SQL_CONNECTION_TRANSACTIONS = "initial catalog=Transacciones; Data Source= keycloud-prod.database.windows.net; " +
@@ -77,6 +79,42 @@ namespace KeytecAdministración.Controllers
                 }
                 connection.Close();
             }
+
+            /*List<Empresa> listaEmpresa = new List<Empresa>();
+            try
+            {
+                string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
+                {
+                    string query;
+                    connection.Open();
+                    query = ("select EMP_ENTORNO,EMP_NOMBRE from key_empresas");
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader response;
+                        response = command.ExecuteReader();
+                        if (response.HasRows)
+                        {
+                            if (response.Read())
+                            {
+                                Empresa empresa = new Empresa();
+                                empresa.Instancia = response[0].ToString();
+                                empresa.nombre = response[1].ToString();
+                                listaEmpresa.Add(empresa);
+                            }
+
+                        }
+                        response.Close();
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Fallo en tabla key_empresa" + ex.Message);
+            }
+            */
             //var transacciones = transaccionesContext.Transacciones.Where(x => x.TraSn.Contains("CGJ")).ToList();
 
             //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
@@ -104,6 +142,39 @@ namespace KeytecAdministración.Controllers
                         tablaFinal.MachineAlias = i.MachineAlias;
                         tablaFinal.Sn = i.Sn;
                         tablaFinal.Instancia = i.Instancia;
+                        
+                        try
+                        {
+                            string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
+                            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
+                            {
+                                string query;
+                                string empresa = "";
+                                connection.Open();
+                                query = string.Format("select EMP_NOMBRE from key_empresas where EMP_ENTORNO='{0}'", i.Instancia);
+
+                                using (SqlCommand command = new SqlCommand(query, connection))
+                                {
+                                    SqlDataReader response;
+                                    response = command.ExecuteReader();
+                                    if (response.HasRows)
+                                    {
+                                        if (response.Read()) {
+                                            empresa = response[0].ToString();
+                                            tablaFinal.Nombre_empresa = empresa;
+                                        }
+                                            
+                                    }
+                                    response.Close();
+                                }
+                               
+                                connection.Close();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            logger.Error("Fallo en tabla key_empresa" + ex.Message);
+                        }
                         tablaFinal.IdSucursal = i.IdSucursal;
                         tablaFinal.MachineNumber = i.MachineNumber;
                         tablaFinal.EstCantHuellas = j.EstCantHuellas;
@@ -136,6 +207,8 @@ namespace KeytecAdministración.Controllers
                     }                  
                 }
             }
+
+            
 
             for (int i = 0; i < tablamaquina.Count(); i++)
             {
@@ -187,7 +260,7 @@ namespace KeytecAdministración.Controllers
                 }
             }
 
-            var table = tablamaquina.Where(predicado).Where(predicado1).Where(y => !string.IsNullOrEmpty(y.Sn))
+            var table = tablamaquina.Where(predicado).Where(predicado1).Where(predicado2).Where(y => !string.IsNullOrEmpty(y.Sn))
             .OrderBy(x => x.Id).Skip((pagina - 1) * cantidadRegistrosPorPagina).Take(cantidadRegistrosPorPagina).ToList();
 
             var modelo = new IndexViewModel();
@@ -199,6 +272,8 @@ namespace KeytecAdministración.Controllers
             modelo.TotalDeRegistros = totalDeRegistros;
             modelo.ValoresQueryString = new RouteValueDictionary();
             modelo.ValoresQueryString["Instancia"] = Instancia;
+            modelo.ValoresQueryString2 = new RouteValueDictionary();
+            modelo.ValoresQueryString2["Empresa"] = Empresa;
 
             return View(modelo);
         }

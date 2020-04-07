@@ -11,6 +11,7 @@ namespace KeytecAdministración.Models
         public string MachineAlias { get; set; }
         public string Sn { get; set; }
         public string Instancia { get; set; }
+        public string Nombre_empresa { get; set; }
         public int? IdSucursal { get; set; }
         public int MachineNumber { get; set; }
         public int? EstCantUsuarios { get; set; }

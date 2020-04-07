@@ -17,10 +17,18 @@
         <input type="text" name="Instancia" id="Instancia" />
         <input type="submit" value="Filtrar" class="btn btn-success" />
     }
+    <br />
     @using (Html.BeginForm(null, null, FormMethod.Get))
     {
         <label scope="col" for="SN">SN</label>
         <input type="text" name="SN" id="SN" />
+        <input type="submit" value="Filtrar" class="btn btn-success" />
+    }
+    <br />
+    @using (Html.BeginForm(null, null, FormMethod.Get))
+    {
+        <label scope="col" for="Empresa">Empresa</label>
+        <input type="text" name="Empresa" id="Empresa" />
         <input type="submit" value="Filtrar" class="btn btn-success" />
     }
 </div>
@@ -33,11 +41,10 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>id</th>
                     <th>Nombre Máquina</th>
-                    <th>Machine number</th>
                     <th>SN</th>
                     <th>Instancia</th>
+                    <th>Empresa</th>
                     <th>ID Sucursal</th>
                     <th>Número Huellas</th>
                     <th>Número Usuarios</th>
@@ -54,16 +61,17 @@
                     <th>Descarga Pendiente</th>
                     <th>Otras.Pendiente</th>
                     <th>IdRegion</th>
+                    <th>id</th>
+                    <th>Machine number</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th>id</th>
                     <th>Nombre Máquina</th>
-                    <th>Machine number</th>
                     <th>SN</th>
                     <th>Instancia</th>
+                    <th>Empresa</th>
                     <th>ID Sucursal</th>
                     <th>Número Huellas</th>
                     <th>Número Usuarios</th>
@@ -80,6 +88,8 @@
                     <th>Descarga Pendiente</th>
                     <th>Otras.Pendiente</th>
                     <th>IdRegion</th>
+                    <th>id</th>
+                    <th>Machine number</th>
                     <th>Acciones</th>
                 </tr>
             </tfoot>
@@ -88,11 +98,10 @@
             {
                 <tbody>
                     <tr style="height:80%;">
-                        <td scope="col">@item.Id</td>
                         <td scope="col">@Html.DisplayFor(Model => item.MachineAlias)</td>
-                        <td scope="col">@Html.DisplayFor(Model => item.MachineNumber)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.Sn)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.Instancia)</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.Nombre_empresa)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.IdSucursal)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.EstCantHuellas)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.EstCantUsuarios)</td>
@@ -125,6 +134,8 @@
                         <td scope="col">@Html.DisplayFor(Model => item.DescargaPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.OtrasPendiente)</td>
                         <td scope="col">@Html.DisplayFor(Model => item.IdRegion)</td>
+                        <td scope="col">@item.Id</td>
+                        <td scope="col">@Html.DisplayFor(Model => item.MachineNumber)</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
