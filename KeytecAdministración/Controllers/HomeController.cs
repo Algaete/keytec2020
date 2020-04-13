@@ -80,7 +80,8 @@ namespace KeytecAdministración.Controllers
                 connection.Close();
             }
 
-            /*List<Empresa> listaEmpresa = new List<Empresa>();
+            
+            List<Empresa> listaEmpresa = new List<Empresa>();
             try
             {
                 string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
@@ -96,7 +97,7 @@ namespace KeytecAdministración.Controllers
                         response = command.ExecuteReader();
                         if (response.HasRows)
                         {
-                            if (response.Read())
+                            while (response.Read())
                             {
                                 Empresa empresa = new Empresa();
                                 empresa.Instancia = response[0].ToString();
@@ -114,7 +115,14 @@ namespace KeytecAdministración.Controllers
             {
                 logger.Error("Fallo en tabla key_empresa" + ex.Message);
             }
-            */
+            string nm;
+            string ins;
+            foreach(var l in listaEmpresa)
+            {
+                nm = l.nombre;
+                ins = l.Instancia;
+            }
+            
             //var transacciones = transaccionesContext.Transacciones.Where(x => x.TraSn.Contains("CGJ")).ToList();
 
             //var estadoDisp = transaccionesContext.EstadoDispositivos.Where(x=>x.EstSn.Contains(maquinas.Select(x=>x.Sn).ToString())).ToList();
@@ -143,37 +151,13 @@ namespace KeytecAdministración.Controllers
                         tablaFinal.Sn = i.Sn;
                         tablaFinal.Instancia = i.Instancia;
                         
-                        try
+                        int g;
+                        for(g=0;g<listaEmpresa.Count; g++)
                         {
-                            string SQL_CONNECTION_PRODUCTIONS = "initial catalog=Produccion; Data Source= keycloud-prod.database.windows.net; Connection Timeout=30; User Id = appkey; Password=Kkdbc36de$; Min Pool Size=20; Max Pool Size=200; MultipleActiveResultSets=True;";
-                            using (SqlConnection connection = new SqlConnection(SQL_CONNECTION_PRODUCTIONS))
+                            if (listaEmpresa[g].Instancia.Equals(i.Instancia))
                             {
-                                string query;
-                                string empresa = "";
-                                connection.Open();
-                                query = string.Format("select EMP_NOMBRE from key_empresas where EMP_ENTORNO='{0}'", i.Instancia);
-
-                                using (SqlCommand command = new SqlCommand(query, connection))
-                                {
-                                    SqlDataReader response;
-                                    response = command.ExecuteReader();
-                                    if (response.HasRows)
-                                    {
-                                        if (response.Read()) {
-                                            empresa = response[0].ToString();
-                                            tablaFinal.Nombre_empresa = empresa;
-                                        }
-                                            
-                                    }
-                                    response.Close();
-                                }
-                               
-                                connection.Close();
+                                tablaFinal.Nombre_empresa = listaEmpresa[g].nombre;
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            logger.Error("Fallo en tabla key_empresa" + ex.Message);
                         }
                         tablaFinal.IdSucursal = i.IdSucursal;
                         tablaFinal.MachineNumber = i.MachineNumber;

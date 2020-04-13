@@ -1,0 +1,27 @@
+2020-04-09 15:31:07.8117 INFO Nlog funcionando
+2020-04-09 15:31:10.6059 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:10.9923 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:11.3620 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:11.7046 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:12.0542 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:12.4063 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:12.7523 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:13.1141 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:13.4681 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:13.8182 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:14.1821 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:14.5526 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:14.8987 INFO No hay directorio loggers del dia de hoy en el servidor o error en lectura 
+2020-04-09 15:31:19.8636 INFO Logger request funcionando
+2020-04-09 15:31:23.5638 INFO Entrando a archivo anterior en servidor FTP
+2020-04-09 15:31:39.5528 INFO Logger request funcionando
+2020-04-09 15:31:44.7166 INFO Entrando a archivo anterior en servidor FTP
+2020-04-09 15:36:47.6652 INFO Logger request funcionando
+2020-04-09 15:36:52.7819 INFO Entrando a archivo anterior en servidor FTP
+2020-04-09 15:41:56.0028 INFO Logger request funcionando
+2020-04-09 15:42:00.9715 INFO Entrando a archivo anterior en servidor FTP
+2020-04-09 15:47:04.0736 INFO Logger request funcionando
+2020-04-09 15:47:11.0461 INFO Entrando a archivo anterior en servidor FTP
+2020-04-09 15:49:33.9868 INFO Logger request funcionando
+2020-04-09 15:49:39.7243 INFO Entrando a archivo anterior en servidor FTP
+2020-04-09 15:54:45.0318 INFO Logger request funcionando
